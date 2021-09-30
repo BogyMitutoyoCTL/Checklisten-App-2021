@@ -44,5 +44,14 @@ Wir installierten und konfigurierten:
 1. eine Java Runtime: [Amazon Corretto 🔗](https://docs.aws.amazon.com/corretto/index.html)
 2. [Android Studio 🔗](https://developer.android.com/studio)
 3. [Flutter 🔗](https://flutter.dev/) (enthält [Dart 🔗](https://dart.dev/))
+4. einen Emulator für ein Smartphone mit Play Store
 
-Das Ausführen der mitgelieferten Demo-App zeigte, ob alles wie gewünscht geklappt hat. Danach haben wir den ganzen Code gelöscht, um erstmal mit ein paar Grundlagen loslegen zu können.
+Das Ausführen der mitgelieferten Demo-App im Browser, im Emulator und auf dem Smartphone zeigte, ob alles wie gewünscht geklappt hat. 
+
+Erkenntnis:
+
+* Beim Xiaomi Note 9 muss die "MIUI optimization" abgeschaltet werden, damit wir Apps hochladen konnten. ([Quelle 🔗](https://stackoverflow.com/questions/47239251/install-failed-user-restricted-android-studio-using-redmi-4-device))
+
+  Ein kurzer Moment des Schreckens: auf dem betroffenen Smartphone zeigte Whatsapp keine Kontaktinformationen mehr an. Grund dafür war, dass WhatsApp keine Berechtigungen mehr hatte ([Quelle 🔗](https://www.reddit.com/r/Xiaomi/comments/8c84f5/whatsapp_not_showing_contact_names/)). Warum genau WhatsApp die Berechtigungen verlor, ist unklar. Das Wiedereinschalten der "MIUI Optimization" half jedenfalls nicht. Wir haben folgende Berechtigungen von einem anderen Smartphone abgelesen und wieder eingerichtet: Kamera, Kontakte, Mikrofon, Speicher.
+
+Danach haben wir den ganzen Dart Code der Demoanwendung gelöscht, um erstmal mit ein paar [Dart Grundlagen (PPTX⇓)](Dart.pptx) loslegen zu können. In dieser Präsentation sind wir bis Folie 13 gekommen.
