@@ -67,4 +67,10 @@ Wir haben in Android Studio weiter programmiert und Dart kennengelernt und folge
 * Wahrheitswerte und Aussagen
 * Verzweigungen (`if`)
 
+**Lösungen zu den Übungen:**
+
+* [Lösung Übung 1](https://dartpad.dev/?id=bc2ccef0f3caaa3444577838340cb746&null_safety=true)
+* [Lösung Übung 2](https://dartpad.dev/?id=600212c3180ea97c91c25899fe08fe32&null_safety=true)
+* [Lösung Übung 3](https://dartpad.dev/?id=275d13381ca893879be2b6f6b82559e2&null_safety=true)
+
 Wir sind bis Folie 38 gekommen.
