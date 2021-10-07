@@ -55,3 +55,16 @@ Erkenntnis:
   Ein kurzer Moment des Schreckens: auf dem betroffenen Smartphone zeigte Whatsapp keine Kontaktinformationen mehr an. Grund dafür war, dass WhatsApp keine Berechtigungen mehr hatte ([Quelle 🔗](https://www.reddit.com/r/Xiaomi/comments/8c84f5/whatsapp_not_showing_contact_names/)). Warum genau WhatsApp die Berechtigungen verlor, ist unklar. Das Wiedereinschalten der "MIUI Optimization" half jedenfalls nicht. Wir haben folgende Berechtigungen von einem anderen Smartphone abgelesen und wieder eingerichtet: Kamera, Kontakte, Mikrofon, Speicher.
 
 Danach haben wir den ganzen Dart Code der Demoanwendung gelöscht, um erstmal mit ein paar [Dart Grundlagen (PPTX⇓)](Dart.pptx) loslegen zu können. In dieser Präsentation sind wir bis Folie 13 gekommen.
+
+## Mittwoch, 6.10.21
+
+Wir haben in Android Studio weiter programmiert und Dart kennengelernt und folgende Themen behandelt:
+
+* Rechenoperationen
+* Bibliotheken, z.B. für die Mathematik-Funktion Potenzieren
+* Textverarbeitung, insbesondere das "Ausschneiden" von Buchstaben
+* Wiederholungen / Schleifen (`for` und `while`)
+* Wahrheitswerte und Aussagen
+* Verzweigungen (`if`)
+
+Wir sind bis Folie 38 gekommen.
