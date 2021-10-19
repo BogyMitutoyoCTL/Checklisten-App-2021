@@ -85,5 +85,11 @@ Wir haben weiter mit Dart gearbeitet und die Themen
 * Funktionen
 * Named Arguments
 
+**Lösungen zu den Übungen:**
+
+* [Lösung Übung 4](https://dartpad.dev/?id=04925f332c8e728abda1d6fda4b5a6cf&null_safety=true)
+* [Lösung Übung 5](https://dartpad.dev/?id=f3bd95f6690db01d8301e8e478d8d198&null_safety=true)
+* [Lösung Übung 6](https://dartpad.dev/?id=0f4e3f00594a88e8da99956803acd726&null_safety=true)
+
 behandelt. Wir sind bis Folie 58 gekommen.
 
