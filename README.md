@@ -74,3 +74,16 @@ Wir haben in Android Studio weiter programmiert und Dart kennengelernt und folge
 * [Lösung Übung 3](https://dartpad.dev/?id=275d13381ca893879be2b6f6b82559e2&null_safety=true)
 
 Wir sind bis Folie 38 gekommen.
+
+## Mittwoch, 13.10.21
+
+Wir haben weiter mit Dart gearbeitet und die Themen
+
+* Listen
+* Maps / Dictionaries
+* Methoden
+* Funktionen
+* Named Arguments
+
+behandelt. Wir sind bis Folie 58 gekommen.
+
