@@ -93,3 +93,22 @@ Wir haben weiter mit Dart gearbeitet und die Themen
 
 behandelt. Wir sind bis Folie 58 gekommen.
 
+## Mittwoch 20.10.21
+
+Wir haben die verbleibenden Themen der Dart-Präsentation durchgearbeitet:
+
+* Callbacks (überflogen)
+* async/await (überflogen)
+* Klassen und Objekte
+
+Beim Thema Klassen und Objekte haben wir berechnet, wie viel ein Quader aus Gold wiegt und was er wert ist. Viele Filme sind in dieser Hinsicht eher unrealistisch: die Bankräuber tragen zu viele Goldbarren auf einmal und ein voll mit Gold beladener Laster würde sicher zusammenbrechen.
+
+In der BOGY-Woche müssen wir noch lernen
+
+* wie eine Flutter App aufgebaut ist
+* wie wir zusammen arbeiten und Daten austauschen.
+
+## Montag 25.10.21
+
+Nachdem wir die Grundlagen von Dart verstanden haben, konnten wir uns heute mit dem Thema [Flutter](Flutter.pptx) beschäftigen. Flutter ist ein Zusatz zu Dart, der es uns erlaubt, Apps mit visuellen Gestaltungselementen zu erstellen. Die visuellen Elemente heißen Widgets.
+
