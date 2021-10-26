@@ -102,7 +102,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               children: [
                 ElevatedButton(
                   onPressed: settings,
-                  child: Icon(Icons.settings),
+                  child: Icon(Icons.add_box_sharp),
                 ),
                 ElevatedButton(
                     onPressed: hinzufuegen, child: Text("hinzufuegen"))
