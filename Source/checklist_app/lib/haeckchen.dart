@@ -49,64 +49,67 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       appBar: AppBar(
         title: Text("Checkliste1"),
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Checkbox(
-                checkColor: Colors.white,
-                value: isBananeChecked,
-                onChanged: (bool? value) {
-                  setState(() {
-                    isBananeChecked = value!;
-                  });
-                },
-              ),
-              Text("Banane"),
-            ],
-          ),
-          Row(
-            children: [
-              Checkbox(
-                checkColor: Colors.white,
-                value: isApfelChecked,
-                onChanged: (bool? value) {
-                  setState(() {
-                    isApfelChecked = value!;
-                  });
-                },
-              ),
-              Text("Apfel"),
-            ],
-          ),
-          Padding(
-              padding: const EdgeInsets.all(30.0),
-              child: TextFormField(
-                controller: _controller,
-                textAlign: TextAlign.center,
-                autofocus: true,
-                decoration: InputDecoration.collapsed(
-                    hintText: "Notizen", border: InputBorder.none),
-              )),
-          Row(
-            children: [
-              Placeholder(
-                fallbackHeight: 300,
-                fallbackWidth: 392,
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ElevatedButton(
-                onPressed: settings,
-                child: Icon(Icons.settings),
-              ),
-              ElevatedButton(onPressed: hinzufuegen, child: Text("hinzufuegen"))
-            ],
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Checkbox(
+                  checkColor: Colors.white,
+                  value: isBananeChecked,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isBananeChecked = value!;
+                    });
+                  },
+                ),
+                Text("Banane"),
+              ],
+            ),
+            Row(
+              children: [
+                Checkbox(
+                  checkColor: Colors.white,
+                  value: isApfelChecked,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isApfelChecked = value!;
+                    });
+                  },
+                ),
+                Text("Apfel"),
+              ],
+            ),
+            Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: TextFormField(
+                  controller: _controller,
+                  textAlign: TextAlign.center,
+                  autofocus: true,
+                  decoration: InputDecoration.collapsed(
+                      hintText: "Notizen", border: InputBorder.none),
+                )),
+            Row(
+              children: [
+                Placeholder(
+                  fallbackHeight: 300,
+                  fallbackWidth: 392,
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: settings,
+                  child: Icon(Icons.settings),
+                ),
+                ElevatedButton(
+                    onPressed: hinzufuegen, child: Text("hinzufuegen"))
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
