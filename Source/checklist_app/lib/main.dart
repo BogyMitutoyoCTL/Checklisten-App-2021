@@ -10,11 +10,9 @@ class BogyChecklistApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Container(
-        color: Colors.red,
-      ),
+          primarySwatch: Colors.grey,
+          canvasColor: Color.fromARGB(254, 190, 195, 200)),
+      home: Container(),
     );
   }
 }
