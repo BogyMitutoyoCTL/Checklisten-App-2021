@@ -9,7 +9,8 @@ class LokalesSpeichern extends StatefulWidget {
 class _LokalesSpeichernState extends State<LokalesSpeichern> {
   var text = "";
 
-  String id = 'AlleListen';
+  String id = 'AlleListenID';
+  String path = 'AlleListenPath';
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,11 @@ class _LokalesSpeichernState extends State<LokalesSpeichern> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: ElevatedButton(
+                onPressed: deleteFile, child: Text("Delete me :c")),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: ElevatedButton(
               child: Text("Alle Werte aus Liste auslesen"),
               onPressed: doSomethingElse,
             ),
@@ -40,9 +46,14 @@ class _LokalesSpeichernState extends State<LokalesSpeichern> {
     );
   }
 
+  void deleteFile() {
+    final instance = Localstore.instance;
+    instance.collection(path).doc(id).delete();
+  }
+
   void doSomething() {
     final instance = Localstore.instance;
-    instance.collection('AlleListen').doc(id).set({
+    instance.collection(path).doc(id).set({
       'liste1': [
         ['a', true],
         ['b', false]
@@ -56,7 +67,7 @@ class _LokalesSpeichernState extends State<LokalesSpeichern> {
 
   Future<void> doSomethingElse() async {
     final instance = Localstore.instance;
-    var datei = await instance.collection('AlleListen').doc(id).get();
+    var datei = await instance.collection(path).doc(id).get();
     text = "";
     for (var file in datei!['liste2']) {
       setState(() {
