@@ -112,3 +112,9 @@ In der BOGY-Woche müssen wir noch lernen
 
 Nachdem wir die Grundlagen von Dart verstanden haben, konnten wir uns heute mit dem Thema [Flutter](Flutter.pptx) beschäftigen. Flutter ist ein Zusatz zu Dart, der es uns erlaubt, Apps mit visuellen Gestaltungselementen zu erstellen. Die visuellen Elemente heißen Widgets.
 
+## Dienstag 26.10.21
+
+Am Morgen haben wir überlegt, wie die App aussehen könnte. Es entstanden sogenannte Wireframes und eine Navigationsübersicht.
+
+Im Anschluss haben wir besprochen, was [Versionskontrolle](Versionskontrolle.pptx) ist und wie sie konkret bei [Git](GitWindows.pptx) einsetzt.
+
