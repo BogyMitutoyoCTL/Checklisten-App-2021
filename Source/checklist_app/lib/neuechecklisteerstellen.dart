@@ -11,7 +11,7 @@ class NeueChecklisteErstellen extends StatefulWidget {
 class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _controller1 = TextEditingController();
-  String _text1 = "Erster Test";
+  String _text1 = "";
 
   String _text = "";
 
@@ -75,9 +75,29 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
                 padding: EdgeInsets.all(3),
               ),
             ),
+            Center(
+              child: Container(
+                width: 200,
+                height: 20,
+                child: TextFormField(
+                    controller: _controller1,
+                    textAlign: TextAlign.center,
+                    autofocus: true,
+                    decoration: InputDecoration.collapsed(
+                        hintText: "zum Beispiel Banane",
+                        border: InputBorder.none)),
+              ),
+            ),
           ],
         )
       ]),
+      floatingActionButton: FloatingActionButton(
+        onPressed: speichern,
+        tooltip: "Speichern",
+        child: Icon(Icons.save_alt),
+      ),
     );
   }
+
+  void speichern() {}
 }
