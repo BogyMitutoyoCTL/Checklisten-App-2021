@@ -103,7 +103,7 @@ class _StartseiteState extends State<Startseite> {
       floatingActionButton: FloatingActionButton(
         onPressed: onPressed,
         tooltip: 'Increment',
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.grey,
         child: Icon(Icons.add),
       ),
     );
