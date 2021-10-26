@@ -1,3 +1,4 @@
+import 'package:checklist_app/startseite.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class BogyChecklistApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.grey,
           canvasColor: Color.fromARGB(254, 190, 195, 200)),
-      home: Container(),
+      home: Startseite(),
     );
   }
 }
