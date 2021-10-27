@@ -11,9 +11,10 @@ class NeueChecklisteErstellen extends StatefulWidget {
 class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   final TextEditingController namenController = TextEditingController();
   final TextEditingController sachController = TextEditingController();
-  String sachText = "";
+  String sachString = "";
   String checklistenName = "";
   List<String> sachStrings = [];
+
   get onPressed => null;
 
   @override
@@ -27,10 +28,10 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
       });
     });
 
-    sachController.text = sachText;
+    sachController.text = sachString;
     sachController.addListener(() {
       setState(() {
-        sachText = sachController.text;
+        sachString = sachController.text;
       });
     });
   }
@@ -60,31 +61,30 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
               autofocus: true,
               decoration: InputDecoration.collapsed(
                   hintText: "Name der Checkliste", border: InputBorder.none))),
-      Row(
-        children: [
-          ElevatedButton(
-            onPressed: hinzufuegen,
-            child: Icon(Icons.add_circle_outline),
-            style: ElevatedButton.styleFrom(
-              shape: CircleBorder(),
-              padding: EdgeInsets.all(3),
-            ),
+      Row(children: [
+        ElevatedButton(
+          onPressed: hinzufuegen,
+          child: Icon(Icons.add_circle_outline),
+          style: ElevatedButton.styleFrom(
+            shape: CircleBorder(),
+            padding: EdgeInsets.all(3),
           ),
-          Center(
-            child: Container(
-              width: 200,
-              height: 20,
-              child: TextFormField(
-                  controller: sachController,
-                  textAlign: TextAlign.center,
-                  autofocus: true,
-                  decoration: InputDecoration.collapsed(
-                      hintText: "zum Beispiel Banane",
-                      border: InputBorder.none)),
-            ),
+        ),
+        Center(
+          child: Container(
+            width: 200,
+            height: 20,
+            child: TextFormField(
+                controller: sachController,
+                textAlign: TextAlign.center,
+                autofocus: true,
+                decoration: InputDecoration.collapsed(
+                    hintText: "zum Beispiel Banane", border: InputBorder.none)),
           ),
-        ],
-      )
+        ),
+        ElevatedButton(
+            onPressed: loeschen, child: Icon(Icons.backspace_outlined))
+      ])
     ];
     children2.addAll(listezumAnzeigen);
 
@@ -109,9 +109,13 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   void speichern() {}
 
   void hinzufuegen() {
-    sachStrings.add(sachText);
-    sachText = "";
-    sachController.text = "";
-    setState(() {});
+    if (sachString != "") {
+      sachStrings.add(sachString);
+      sachString = "";
+      sachController.text = "";
+      setState(() {});
+    }
   }
+
+  void loeschen() {}
 }
