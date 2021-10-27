@@ -42,61 +42,68 @@ class _StartseiteState extends State<Startseite> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 5.0),
+                    child: ElevatedButton(
+                        onPressed: settings, child: Icon(Icons.settings)),
+                  ),
+                  Container(
+                    width: 250,
+                    child: TextFormField(
+                      controller: _controller,
+                      textAlign: TextAlign.center,
+                      autofocus: true,
+                      decoration: InputDecoration.collapsed(
+                          hintText: "Search", border: InputBorder.none),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 5.0),
+                    child: ElevatedButton(
+                        onPressed: onPressed, child: Icon(Icons.search)),
+                  )
+                ],
+              ),
+            ),
+            Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 5.0),
+                Container(
+                  margin: EdgeInsets.all(5),
                   child: ElevatedButton(
-                      onPressed: settings, child: Icon(Icons.settings)),
+                      child: Container(child: Text('Checkliste 1')),
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size(double.infinity, 100)),
+                      //color: Colors.grey,
+                      //textColor: Colors.black,
+                      onPressed: () {}),
                 ),
                 Container(
-                  width: 250,
-                  child: TextFormField(
-                    controller: _controller,
-                    textAlign: TextAlign.center,
-                    autofocus: true,
-                    decoration: InputDecoration.collapsed(
-                        hintText: "Search", border: InputBorder.none),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 5.0),
+                  margin: EdgeInsets.all(5),
                   child: ElevatedButton(
-                      onPressed: onPressed, child: Icon(Icons.search)),
+                      child: Container(child: Text('Checkliste 2')),
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size(double.infinity, 100)),
+                      //color: Colors.grey,
+                      //textColor: Colors.black,
+                      onPressed: () {}),
+                ),
+                Container(
+                  margin: EdgeInsets.all(5),
+                  child: ElevatedButton(
+                      child: Container(child: Text('Checkliste 3')),
+                      style: ElevatedButton.styleFrom(
+                          minimumSize: Size(double.infinity, 100)),
+                      //color: Colors.grey,
+                      //textColor: Colors.black,
+                      onPressed: () {}),
                 )
               ],
             ),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: ElevatedButton(
-                  child: Container(child: Text('Checkliste 1')),
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(double.infinity, 100)),
-                  //color: Colors.grey,
-                  //textColor: Colors.black,
-                  onPressed: () {}),
-            ),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: ElevatedButton(
-                  child: Container(child: Text('Checkliste 2')),
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(double.infinity, 100)),
-                  //color: Colors.grey,
-                  //textColor: Colors.black,
-                  onPressed: () {}),
-            ),
-            Container(
-              margin: EdgeInsets.all(20),
-              child: ElevatedButton(
-                  child: Container(child: Text('Checkliste 3')),
-                  style: ElevatedButton.styleFrom(
-                      minimumSize: Size(double.infinity, 100)),
-                  //color: Colors.grey,
-                  //textColor: Colors.black,
-                  onPressed: () {}),
-            )
           ],
         ),
       ),
