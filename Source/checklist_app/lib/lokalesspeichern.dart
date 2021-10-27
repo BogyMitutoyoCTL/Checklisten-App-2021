@@ -1,82 +1,35 @@
-import 'package:flutter/material.dart';
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
 import 'package:localstore/localstore.dart';
+import 'klassecheckliste.dart';
 
-class LokalesSpeichern extends StatefulWidget {
-  @override
-  _LokalesSpeichernState createState() => _LokalesSpeichernState();
-}
-
-class _LokalesSpeichernState extends State<LokalesSpeichern> {
-  var text = "";
-
-  String id = 'AlleListenID';
-  String path = 'AlleListenPath';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blue,
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ElevatedButton(
-              child: Text("Neue Datei Erstellen"),
-              onPressed: doSomething,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ElevatedButton(
-                onPressed: deleteFile, child: Text("Delete me :c")),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: ElevatedButton(
-              child: Text("Alle Werte aus Liste auslesen"),
-              onPressed: doSomethingElse,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(text),
-          ),
-        ],
-      ),
-    );
+class LokalesSpeichern {
+  String id = "id";
+  String path = "path";
+  LokalesSpeichern(String id, String path) {
+    this.id = id;
+    this.path = path;
+  }
+  void dateienSpeichern(List checklisten) {
+    final instance = Localstore.instance;
+    Map<String, Checkliste> checkMap = {};
+    checklisten
+        .forEach((Checkliste) => checkMap[Checkliste.titel] = Checkliste);
+    instance.collection(this.path).doc(this.id).set(checkMap);
   }
 
-  void deleteFile() {
+  Future<List> dateienAusgeben() async {
     final instance = Localstore.instance;
-    instance.collection(path).doc(id).delete();
+    Map<String, dynamic>? datei =
+        await instance.collection(this.path).doc(this.id).get();
+    var checkListen = [];
+    datei!.forEach((key, value) => checkListen.add(value));
+    return checkListen;
   }
 
-  void doSomething() {
+  void dateienLoeschen() {
     final instance = Localstore.instance;
-    instance.collection(path).doc(id).set({
-      'liste1': [
-        ['a', true],
-        ['b', false]
-      ],
-      'liste2': [
-        ['c', false],
-        ['d', false]
-      ]
-    });
-  }
-
-  Future<void> doSomethingElse() async {
-    final instance = Localstore.instance;
-    var datei = await instance.collection(path).doc(id).get();
-    text = "";
-    for (var file in datei!['liste2']) {
-      setState(() {
-        text += "Eintrag: \nName: " +
-            file[0].toString() +
-            ", Wert: " +
-            file[1].toString() +
-            "\n";
-      });
-    }
+    instance.collection(this.path).doc(this.id).delete();
   }
 }
