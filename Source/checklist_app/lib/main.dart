@@ -4,33 +4,27 @@ import 'package:flutter/material.dart';
 import 'lokalesspeichern.dart';
 
 void main() {
-  LokalesSpeichern save = LokalesSpeichern("id", "path");
+  LokalesSpeichern save = LokalesSpeichern(path: 'path', id: 'id');
+
+  List<Eintrag> eintragliste1 = [
+    Eintrag(text: 'Gemüse', erledigt: true, anzahl: 3),
+    Eintrag(text: 'Obst', erledigt: false, anzahl: 5)
+  ];
+  List<Eintrag> eintragliste2 = [Eintrag(text: 'Stift', anzahl: 10)];
+
+  Checkliste c = Checkliste(
+      titel: 'Einkaufsliste',
+      notizen: 'Beim Aldi einkaufen',
+      eintraege: eintragliste1); //new
+
+  Checkliste s = Checkliste(
+      titel: 'Schulliste',
+      notizen: 'Schachen für die Schule einkaufen',
+      eintraege: eintragliste2);
 
   List<Checkliste> demochecklisten = [];
-  Checkliste c = Checkliste(); //new
-  c.titel = "einkaufsliste";
-  c.notizen = "beim Aldi einkaufen";
 
-  Eintrag g = Eintrag();
-  g.text = "gemüse";
-  g.anzahl = 3;
-  g.erledigt = true;
-  c.eintraege.add(g);
-  Eintrag o = Eintrag();
-  o.text = "Obst";
-  o.anzahl = 5;
-  o.erledigt = false;
-  c.eintraege.add(o);
   demochecklisten.add(c);
-
-  Checkliste s = Checkliste();
-  s.titel = "schulliste";
-  s.notizen = "Sachen für die Schule einkaufen";
-
-  Eintrag st = Eintrag();
-  st.text = "Stifte";
-  st.anzahl = 10;
-  s.eintraege.add(st);
   demochecklisten.add(s);
   runApp(BogyChecklistApp(demochecklisten, save));
 }
