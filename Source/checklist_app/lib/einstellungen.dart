@@ -17,25 +17,43 @@ class _EinstellungenState extends State<Einstellungen> {
           centerTitle: true,
         ),
         body: SingleChildScrollView(
-          child: Column(children: [
-            Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(20),
-                  child: ElevatedButton(
-                      child: Container(
-                        alignment: Alignment.center,
-                        child: Text('Darkmode'),
-                        width: 550,
-                        height: 120,
-                      ),
-                      //color: Colors.grey,
-                      //textColor: Colors.black,
-                      onPressed: () {}),
-                ),
-              ],
+            child: Column(children: [
+          Column(children: [
+            Container(
+              margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: ElevatedButton(
+                  child: Container(child: Text('Darkmode')),
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, 100)),
+                  //color: Colors.grey,
+                  //textColor: Colors.black,
+                  onPressed: () {}),
             )
           ]),
-        ));
+          Column(children: [
+            Container(
+              margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: ElevatedButton(
+                  child: Container(child: Text('Sprache ändern')),
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, 100)),
+                  //color: Colors.grey,
+                  //textColor: Colors.black,
+                  onPressed: () {}),
+            ),
+          ]),
+          Column(children: [
+            Container(
+              margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: ElevatedButton(
+                  child: Container(child: Text('Fehler melden')),
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: Size(double.infinity, 100)),
+                  //color: Colors.grey,
+                  //textColor: Colors.black,
+                  onPressed: () {}),
+            ),
+          ]),
+        ])));
   }
 }
