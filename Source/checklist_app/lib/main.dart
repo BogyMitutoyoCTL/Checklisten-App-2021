@@ -6,11 +6,21 @@ import 'lokalesspeichern.dart';
 void main() {
   LokalesSpeichern save = LokalesSpeichern(path: 'path', id: 'id');
 
-  List<Eintrag> eintragliste1 = [
-    Eintrag(text: 'Gemüse', erledigt: true, anzahl: 3),
-    Eintrag(text: 'Obst', erledigt: false, anzahl: 5)
-  ];
-  List<Eintrag> eintragliste2 = [Eintrag(text: 'Stift', anzahl: 10)];
+  Eintrag g = Eintrag();
+  g.text = "gemüse";
+  g.anzahl = 3;
+  g.erledigt = true;
+  Eintrag o = Eintrag();
+  o.text = "Obst";
+  o.anzahl = 5;
+  o.erledigt = false;
+  List<Eintrag> eintragliste1 = [g, o];
+
+  Eintrag st = Eintrag();
+  st.text = "Stifte";
+  st.anzahl = 10;
+
+  List<Eintrag> eintragliste2 = [st];
 
   Checkliste c = Checkliste(
       titel: 'Einkaufsliste',
