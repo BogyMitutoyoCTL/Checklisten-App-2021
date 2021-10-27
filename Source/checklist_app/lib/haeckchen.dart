@@ -1,9 +1,10 @@
 /// Flutter code sample for Checkbox
+import 'package:checklist_app/klassecheckliste.dart';
 import 'package:flutter/material.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class Haeckchen extends StatefulWidget {
-  const Haeckchen({Key? key}) : super(key: key);
+  const Haeckchen(Checkliste liste, {Key? key}) : super(key: key);
 
   @override
   State<Haeckchen> createState() => _HaeckchenState();
