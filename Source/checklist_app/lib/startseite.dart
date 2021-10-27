@@ -25,13 +25,13 @@ class _StartseiteState extends State<Startseite> {
     List<Container> containerliste = [];
 
     for (var liste in widget.startseitenListen) {
-      var farbe = Colors.blue;
+      var farbe = Colors.green;
       var marked = true;
       for (var eintrag in liste.eintraege) {
         marked = marked && eintrag.erledigt;
       }
       if (marked == false) {
-        farbe = Colors.green;
+        farbe = Colors.blue;
       }
       var c = Container(
         color: farbe,
