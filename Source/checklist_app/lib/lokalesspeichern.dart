@@ -2,27 +2,21 @@ import 'package:localstore/localstore.dart';
 import 'klassecheckliste.dart';
 
 class LokalesSpeichern {
-  String id = "id";
-  String path = "path";
-  LokalesSpeichern(String id, String path) {
-    this.id = id;
-    this.path = path;
-  }
-  void dateienSpeichern(List checklisten) {
-    // speichert
+  String id;
+  String path;
+  final checklistkey = "checklist";
+  LokalesSpeichern({required String this.id, required String this.path}) {}
+  void dateienSpeichern(List<Checkliste> checklist) {
+    // Hier können auch Einstellungen für z.B. Settings hinzugefügt werden
     final instance = Localstore.instance;
-    Map<String, Checkliste> checkMap = {};
-    checklisten
-        .forEach((Checkliste) => checkMap[Checkliste.titel] = Checkliste);
-    instance.collection(this.path).doc(this.id).set(checkMap);
+    instance.collection(this.path).doc(this.id).set({checklistkey: checklist});
   }
 
   Future<List> dateienAusgeben() async {
     final instance = Localstore.instance;
-    Map<String, dynamic>? datei =
+    Map<String, dynamic>? savedData =
         await instance.collection(this.path).doc(this.id).get();
-    var checkListen = [];
-    datei!.forEach((key, value) => checkListen.add(value));
+    var checkListen = savedData![checklistkey];
     return checkListen;
   }
 
