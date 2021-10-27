@@ -23,5 +23,8 @@ class LokalesSpeichern {
     return [];
   }
 
-  void dateienLoeschen() {}
+  void dateienLoeschen() {
+    final instance = Localstore.instance;
+    instance.collection(this.path).doc(this.id).delete();
+  }
 }
