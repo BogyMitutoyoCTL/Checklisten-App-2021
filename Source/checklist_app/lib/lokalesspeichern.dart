@@ -8,21 +8,16 @@ class LokalesSpeichern {
     this.id = id;
     this.path = path;
   }
-  void dateienSpeichern(List checklisten) {
-    // speichert
+  void dateienSpeichern(List<Checkliste> checklist) {
     final instance = Localstore.instance;
-    Map<String, Checkliste> checkMap = {};
-    checklisten
-        .forEach((Checkliste) => checkMap[Checkliste.titel] = Checkliste);
-    instance.collection(this.path).doc(this.id).set(checkMap);
+    instance.collection(this.path).doc(this.id).set({"checklist": checklist});
   }
 
   Future<List> dateienAusgeben() async {
     final instance = Localstore.instance;
-    Map<String, dynamic>? datei =
+    Map<String, dynamic>? savedData =
         await instance.collection(this.path).doc(this.id).get();
-    var checkListen = [];
-    datei!.forEach((key, value) => checkListen.add(value));
+    var checkListen = savedData!["checklist"];
     return checkListen;
   }
 
