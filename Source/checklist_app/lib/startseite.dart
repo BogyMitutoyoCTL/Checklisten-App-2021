@@ -25,19 +25,23 @@ class _StartseiteState extends State<Startseite> {
     List<Container> containerliste = [];
 
     for (var liste in widget.startseitenListen) {
-      var farbe = Colors.green;
+      var icon = Icons.assignment_late_outlined;
       var marked = true;
       for (var eintrag in liste.eintraege) {
         marked = marked && eintrag.erledigt;
       }
-      if (marked == false) {
-        farbe = Colors.blue;
+      if (marked == true) {
+        icon = Icons.assignment_turned_in_outlined;
       }
       var c = Container(
-        color: farbe,
         margin: EdgeInsets.all(10),
         child: ElevatedButton(
-            child: Container(color: farbe, child: Text(liste.titel)),
+            child: Container(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Text(liste.titel), Icon(icon)],
+            )),
             style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 100)),
             //color: Colors.grey,
@@ -88,3 +92,4 @@ class _StartseiteState extends State<Startseite> {
     setState(() {});
   }
 }
+// add_task
