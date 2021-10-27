@@ -9,6 +9,7 @@ class LokalesSpeichern {
     this.path = path;
   }
   void dateienSpeichern(List checklisten) {
+    // speichert
     final instance = Localstore.instance;
     Map<String, Checkliste> checkMap = {};
     checklisten
