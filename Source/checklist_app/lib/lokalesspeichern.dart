@@ -19,8 +19,13 @@ class LokalesSpeichern {
     instance.collection(this.path).doc(this.id).set(checkMap);
   }
 
-  List dateienAusgeben() {
-    return [];
+  Future<List> dateienAusgeben() async {
+    final instance = Localstore.instance;
+    Map<String, dynamic>? datei =
+        await instance.collection(this.path).doc(this.id).get();
+    var checkListen = [];
+    datei!.forEach((key, value) => checkListen.add(value));
+    return checkListen;
   }
 
   void dateienLoeschen() {
