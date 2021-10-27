@@ -118,3 +118,14 @@ Am Morgen haben wir überlegt, wie die App aussehen könnte. Es entstanden sogen
 
 Im Anschluss haben wir besprochen, was [Versionskontrolle](Versionskontrolle.pptx) ist und wie sie konkret bei [Git](GitWindows.pptx) einsetzt.
 
+Den Rest des Dienstages haben wir damit verbracht, die Wireframes in echte Widgets zu verwandeln. Diese liefen allerdings noch mit Demo-Daten, also noch nicht mit echten Daten aus echten Checklisten.
+
+## Mittwoch 27.10.21
+
+Am Mittwoch liefen mehrere Arbeiten parallel:
+
+* die Navigation zwischen den Widgets wurde hergestellt
+* es entstand eine Klasse für eine echte Checkliste
+* wir haben Demo-Checklisten erstellt, basierend auf der neuen Klasse
+* Möglichkeiten zum Abspeichern von Daten wurden untersucht
+
