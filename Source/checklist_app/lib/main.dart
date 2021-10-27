@@ -10,6 +10,7 @@ void main() {
   g.text = "gemüse";
   g.anzahl = 3;
   g.erledigt = true;
+
   Eintrag o = Eintrag();
   o.text = "Obst";
   o.anzahl = 5;
