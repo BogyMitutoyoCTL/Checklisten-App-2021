@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:localstore/localstore.dart';
 import 'klassecheckliste.dart';
 
