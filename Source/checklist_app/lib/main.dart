@@ -6,37 +6,28 @@ import 'lokalesspeichern.dart';
 void main() {
   LokalesSpeichern save = LokalesSpeichern(path: 'path', id: 'id');
 
-  Eintrag g = Eintrag();
-  g.text = "gemüse";
-  g.anzahl = 3;
-  g.erledigt = true;
+  Eintrag eintrag1 = Eintrag(text: 'Gemüse', anzahl: 3, erledigt: true);
 
-  Eintrag o = Eintrag();
-  o.text = "Obst";
-  o.anzahl = 5;
-  o.erledigt = false;
-  List<Eintrag> eintragliste1 = [g, o];
+  Eintrag eintrag2 = Eintrag(text: 'Obst', erledigt: false, anzahl: 5);
 
-  Eintrag st = Eintrag();
-  st.text = "Stifte";
-  st.anzahl = 10;
+  List<Eintrag> eintragliste1 = [eintrag1, eintrag2];
 
-  List<Eintrag> eintragliste2 = [st];
+  Eintrag eintrag3 = Eintrag(text: 'Stifte', anzahl: 10);
 
-  Checkliste c = Checkliste(
+  List<Eintrag> eintragliste2 = [eintrag3];
+
+  Checkliste liste1 = Checkliste(
       titel: 'Einkaufsliste',
       notizen: 'Beim Aldi einkaufen',
       eintraege: eintragliste1); //new
 
-  Checkliste s = Checkliste(
+  Checkliste liste2 = Checkliste(
       titel: 'Schulliste',
       notizen: 'Schachen für die Schule einkaufen',
       eintraege: eintragliste2);
 
-  List<Checkliste> demochecklisten = [];
+  List<Checkliste> demochecklisten = [liste1, liste2];
 
-  demochecklisten.add(c);
-  demochecklisten.add(s);
   runApp(BogyChecklistApp(demochecklisten, save));
 }
 
