@@ -16,7 +16,4 @@ class Eintrag {
   String text = "";
   bool erledigt = false;
   int? anzahl = 0;
-  Eintrag({required this.text, erledigt, this.anzahl}) {
-    this.erledigt = erledigt;
-  }
 }
