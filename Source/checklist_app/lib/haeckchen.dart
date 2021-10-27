@@ -9,15 +9,15 @@
 import 'package:flutter/material.dart';
 
 /// This is the stateful widget that the main application instantiates.
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+class Haeckchen extends StatefulWidget {
+  const Haeckchen({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<Haeckchen> createState() => _HaeckchenState();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _HaeckchenState extends State<Haeckchen> {
   bool isBananeChecked = false;
   bool isApfelChecked = false;
 
