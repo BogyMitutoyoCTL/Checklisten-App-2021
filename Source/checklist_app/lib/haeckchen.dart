@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class Haeckchen extends StatefulWidget {
-  const Haeckchen(Checkliste liste, {Key? key}) : super(key: key);
+  late Checkliste haeckchencheckliste;
+  Haeckchen(Checkliste liste, {Key? key}) : super(key: key) {
+    haeckchencheckliste = liste;
+  }
 
   @override
   State<Haeckchen> createState() => _HaeckchenState();
@@ -12,9 +15,6 @@ class Haeckchen extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _HaeckchenState extends State<Haeckchen> {
-  bool isBananeChecked = false;
-  bool isApfelChecked = false;
-
   @override
   final TextEditingController _controller = TextEditingController();
   String _text = "";
@@ -41,19 +41,19 @@ class _HaeckchenState extends State<Haeckchen> {
   Widget build(BuildContext context) {
     List<Widget> liste = [];
 
-    for (var i = 0; i < 5; i++) {
+    for (var eintrag in widget.haeckchencheckliste.eintraege) {
       Row r = Row(
         children: [
           Checkbox(
             checkColor: Colors.white,
-            value: isBananeChecked,
+            value: eintrag.erledigt,
             onChanged: (bool? value) {
               setState(() {
-                isBananeChecked = value!;
+                eintrag.erledigt = value!;
               });
             },
           ),
-          Text("Banane"),
+          Text(eintrag.text),
         ],
       );
       liste.add(r);
@@ -66,13 +66,14 @@ class _HaeckchenState extends State<Haeckchen> {
           textAlign: TextAlign.center,
           autofocus: true,
           decoration: InputDecoration.collapsed(
-              hintText: "Notizen", border: InputBorder.none),
+              hintText: widget.haeckchencheckliste.notizen,
+              border: InputBorder.none),
         )));
 
     liste.add(Row(
       children: [
         Placeholder(
-          // Todo: Bild einfügen
+          // Todo: Bild einfügen,
           fallbackHeight: 300,
           fallbackWidth: 392,
         )
