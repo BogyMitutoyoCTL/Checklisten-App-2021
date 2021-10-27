@@ -41,6 +41,27 @@ class _HaeckchenState extends State<Haeckchen> {
   Widget build(BuildContext context) {
     List<Widget> liste = [];
 
+    liste.add(Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: TextFormField(
+          controller: _controller,
+          textAlign: TextAlign.center,
+          autofocus: true,
+          decoration: InputDecoration.collapsed(
+              hintText: widget.haeckchencheckliste.notizen,
+              border: InputBorder.none),
+        )));
+
+    liste.add(Row(
+      children: [
+        Placeholder(
+          // Todo: Bild einfügen,
+          fallbackHeight: 250,
+          fallbackWidth: 392,
+        )
+      ],
+    ));
+
     for (var eintrag in widget.haeckchencheckliste.eintraege) {
       Row r = Row(
         children: [
@@ -58,27 +79,6 @@ class _HaeckchenState extends State<Haeckchen> {
       );
       liste.add(r);
     }
-
-    liste.add(Padding(
-        padding: const EdgeInsets.all(30.0),
-        child: TextFormField(
-          controller: _controller,
-          textAlign: TextAlign.center,
-          autofocus: true,
-          decoration: InputDecoration.collapsed(
-              hintText: widget.haeckchencheckliste.notizen,
-              border: InputBorder.none),
-        )));
-
-    liste.add(Row(
-      children: [
-        Placeholder(
-          // Todo: Bild einfügen,
-          fallbackHeight: 300,
-          fallbackWidth: 392,
-        )
-      ],
-    ));
 
     liste.add(Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
