@@ -53,7 +53,8 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
         children: [
           Expanded(child: Text(neuerString)),
           ElevatedButton(
-              onPressed: loeschen, child: Icon(Icons.backspace_outlined))
+              onPressed: () => loeschen(neuerString),
+              child: Icon(Icons.backspace_outlined))
         ],
       );
       listezumAnzeigen.add(grossserText);
@@ -121,5 +122,8 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
     }
   }
 
-  void loeschen() {}
+  void loeschen(String neuerString) {
+    sachStrings.remove(neuerString);
+    setState(() {});
+  }
 }
