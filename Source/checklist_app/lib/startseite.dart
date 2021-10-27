@@ -23,11 +23,21 @@ class _StartseiteState extends State<Startseite> {
   @override
   Widget build(BuildContext context) {
     List<Container> containerliste = [];
+
     for (var liste in widget.startseitenListen) {
+      var farbe = Colors.blue;
+      var marked = true;
+      for (var eintrag in liste.eintraege) {
+        marked = marked && eintrag.erledigt;
+      }
+      if (marked == false) {
+        farbe = Colors.green;
+      }
       var c = Container(
+        color: farbe,
         margin: EdgeInsets.all(10),
         child: ElevatedButton(
-            child: Container(child: Text(liste.titel)),
+            child: Container(color: farbe, child: Text(liste.titel)),
             style: ElevatedButton.styleFrom(
                 minimumSize: Size(double.infinity, 100)),
             //color: Colors.grey,
@@ -65,11 +75,16 @@ class _StartseiteState extends State<Startseite> {
 
   void checklisteanzeigen(Checkliste liste) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Haeckchen(liste)));
+        .push(MaterialPageRoute(builder: (context) => Haeckchen(liste)))
+        .then((value) => refresh());
   }
 
   void neuechecklisteerstellen() {
     Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => NeueChecklisteErstellen()));
+  }
+
+  void refresh() {
+    setState(() {});
   }
 }
