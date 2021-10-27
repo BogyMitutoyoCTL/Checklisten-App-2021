@@ -1,3 +1,4 @@
+import 'package:checklist_app/einstellungen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -42,17 +43,12 @@ class _StartseiteState extends State<Startseite> {
         child: Column(
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: 7,
-                  height: 10,
-                ),
-                ElevatedButton(
-                    onPressed: onPressed, child: Icon(Icons.settings)),
-                Container(
-                  width: 0,
-                  height: 10,
+                Padding(
+                  padding: const EdgeInsets.only(left: 5.0),
+                  child: ElevatedButton(
+                      onPressed: settings, child: Icon(Icons.settings)),
                 ),
                 Container(
                   width: 250,
@@ -64,7 +60,11 @@ class _StartseiteState extends State<Startseite> {
                         hintText: "Search", border: InputBorder.none),
                   ),
                 ),
-                ElevatedButton(onPressed: onPressed, child: Icon(Icons.search))
+                Padding(
+                  padding: const EdgeInsets.only(right: 5.0),
+                  child: ElevatedButton(
+                      onPressed: onPressed, child: Icon(Icons.search)),
+                )
               ],
             ),
             Container(
@@ -102,7 +102,7 @@ class _StartseiteState extends State<Startseite> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: onPressed,
-        tooltip: 'Increment',
+        tooltip: 'Neue Checkliste erstellen',
         backgroundColor: Colors.grey,
         child: Icon(Icons.add),
       ),
@@ -110,4 +110,9 @@ class _StartseiteState extends State<Startseite> {
   }
 
   void onPressed() {}
+
+  void settings() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => Einstellungen()));
+  }
 }
