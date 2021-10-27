@@ -30,10 +30,15 @@ void main() {
   s.eintraege.add(st);
   demochecklisten.add(s);
 
-  runApp(BogyChecklistApp());
+  runApp(BogyChecklistApp(demochecklisten));
 }
 
 class BogyChecklistApp extends StatelessWidget {
+  late List<Checkliste> appListen;
+  BogyChecklistApp(List<Checkliste> demochecklisten) {
+    appListen = demochecklisten;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,7 +46,7 @@ class BogyChecklistApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.grey,
           canvasColor: Color.fromARGB(254, 190, 195, 200)),
-      home: Startseite(),
+      home: Startseite(appListen),
     );
   }
 }

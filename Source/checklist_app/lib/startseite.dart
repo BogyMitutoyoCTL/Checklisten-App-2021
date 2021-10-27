@@ -1,11 +1,15 @@
 import 'package:checklist_app/haeckchen.dart';
+import 'package:checklist_app/klassecheckliste.dart';
 import 'package:checklist_app/neuechecklisteerstellen.dart';
 import 'package:checklist_app/suchleiste.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Startseite extends StatefulWidget {
-  Startseite({Key? key}) : super(key: key);
+  late List<Checkliste> startseitenListen;
+  Startseite(List<Checkliste> meineListen, {Key? key}) : super(key: key) {
+    startseitenListen = meineListen;
+  }
 
   @override
   _StartseiteState createState() => _StartseiteState();
@@ -14,6 +18,22 @@ class Startseite extends StatefulWidget {
 class _StartseiteState extends State<Startseite> {
   @override
   Widget build(BuildContext context) {
+    List<Container> containerliste = [];
+
+    for (int i = 1; i <= 10; i++) {
+      var c = Container(
+        margin: EdgeInsets.all(10),
+        child: ElevatedButton(
+            child: Container(child: Text('Checkliste ${i}')),
+            style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 100)),
+            //color: Colors.grey,
+            //textColor: Colors.black,
+            onPressed: checklisteanzeigen),
+      );
+      containerliste.add(c);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Deine Checklisten"),
@@ -24,38 +44,7 @@ class _StartseiteState extends State<Startseite> {
           children: [
             Suchleise(),
             Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                      child: Container(child: Text('Checkliste 1')),
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(double.infinity, 100)),
-                      //color: Colors.grey,
-                      //textColor: Colors.black,
-                      onPressed: checklisteanzeigen),
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                      child: Container(child: Text('Checkliste 2')),
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(double.infinity, 100)),
-                      //color: Colors.grey,
-                      //textColor: Colors.black,
-                      onPressed: () {}),
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                      child: Container(child: Text('Checkliste 3')),
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(double.infinity, 100)),
-                      //color: Colors.grey,
-                      //textColor: Colors.black,
-                      onPressed: () {}),
-                )
-              ],
+              children: containerliste,
             ),
           ],
         ),
