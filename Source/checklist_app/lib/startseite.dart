@@ -1,4 +1,5 @@
 import 'package:checklist_app/haeckchen.dart';
+import 'package:checklist_app/neuechecklisteerstellen.dart';
 import 'package:checklist_app/suchleiste.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,7 @@ class _StartseiteState extends State<Startseite> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: onPressed,
+        onPressed: neuechecklisteerstellen,
         tooltip: 'Neue Checkliste erstellen',
         backgroundColor: Colors.grey,
         child: Icon(Icons.add),
@@ -73,5 +74,10 @@ class _StartseiteState extends State<Startseite> {
   void checklisteanzeigen() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => Haeckchen()));
+  }
+
+  void neuechecklisteerstellen() {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => NeueChecklisteErstellen()));
   }
 }
