@@ -10,7 +10,9 @@ void main() {
 
   Eintrag eintrag2 = Eintrag(text: 'Obst', erledigt: false, anzahl: 5);
 
-  List<Eintrag> eintragliste1 = [eintrag1, eintrag2];
+  Eintrag eintrag4 = Eintrag(text: 'Süßigkeiten');
+
+  List<Eintrag> eintragliste1 = [eintrag1, eintrag2, eintrag4];
 
   Eintrag eintrag3 = Eintrag(text: 'Stifte', anzahl: 10);
 
