@@ -8,10 +8,11 @@ import 'package:flutter/material.dart';
 
 class Startseite extends StatefulWidget {
   late List<Checkliste> startseitenListen;
-  Startseite(List<Checkliste> meineListen, LokalesSpeichern listenSpeicher,
-      {Key? key})
+  late LokalesSpeichern listenSpeicher;
+  Startseite(List<Checkliste> meineListen, LokalesSpeichern save, {Key? key})
       : super(key: key) {
     startseitenListen = meineListen;
+    listenSpeicher = save;
   }
 
   @override
