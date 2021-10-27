@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NeueChecklisteErstellen extends StatefulWidget {
@@ -46,9 +47,15 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
 
   @override
   Widget build(BuildContext context) {
-    List<Text> listezumAnzeigen = [];
+    List<Widget> listezumAnzeigen = [];
     for (var neuerString in sachStrings) {
-      var grossserText = Text(neuerString);
+      Widget grossserText = Row(
+        children: [
+          Expanded(child: Text(neuerString)),
+          ElevatedButton(
+              onPressed: loeschen, child: Icon(Icons.backspace_outlined))
+        ],
+      );
       listezumAnzeigen.add(grossserText);
     }
 
@@ -62,6 +69,14 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
               decoration: InputDecoration.collapsed(
                   hintText: "Name der Checkliste", border: InputBorder.none))),
       Row(children: [
+        Expanded(
+          child: TextFormField(
+              controller: sachController,
+              textAlign: TextAlign.start,
+              autofocus: true,
+              decoration: InputDecoration.collapsed(
+                  hintText: "zum Beispiel Banane", border: InputBorder.none)),
+        ),
         ElevatedButton(
           onPressed: hinzufuegen,
           child: Icon(Icons.add_circle_outline),
@@ -70,21 +85,7 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
             padding: EdgeInsets.all(3),
           ),
         ),
-        Center(
-          child: Container(
-            width: 200,
-            height: 20,
-            child: TextFormField(
-                controller: sachController,
-                textAlign: TextAlign.center,
-                autofocus: true,
-                decoration: InputDecoration.collapsed(
-                    hintText: "zum Beispiel Banane", border: InputBorder.none)),
-          ),
-        ),
-        ElevatedButton(
-            onPressed: loeschen, child: Icon(Icons.backspace_outlined))
-      ])
+      ]),
     ];
     children2.addAll(listezumAnzeigen);
 
@@ -97,7 +98,10 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
           ],
         ),
       ),
-      body: Column(children: children2),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(children: children2),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: speichern,
         tooltip: "Speichern",
