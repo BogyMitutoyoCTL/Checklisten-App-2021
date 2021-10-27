@@ -48,7 +48,10 @@ class BogyChecklistApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.grey,
           canvasColor: Color.fromARGB(254, 190, 195, 200)),
-      home: Startseite(appListen, listenSpeicher),
+      home: Startseite(
+        appListen,
+        listenSpeicher,
+      ),
     );
   }
 }
