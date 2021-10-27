@@ -9,6 +9,7 @@ class LokalesSpeichern {
     this.path = path;
   }
   void dateienSpeichern(List<Checkliste> checklist) {
+    // Hier können auch Einstellungen für z.B. Settings hinzugefügt werden
     final instance = Localstore.instance;
     instance.collection(this.path).doc(this.id).set({"checklist": checklist});
   }
