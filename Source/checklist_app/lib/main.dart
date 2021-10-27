@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'lokalesspeichern.dart';
 
 void main() {
-  LokalesSpeichern save = LokalesSpeichern("id", "path");
+  LokalesSpeichern save = LokalesSpeichern(path: 'path', id: 'id');
 
   List<Checkliste> demochecklisten = [];
   Checkliste c = Checkliste(); //new

@@ -2,13 +2,10 @@ import 'package:localstore/localstore.dart';
 import 'klassecheckliste.dart';
 
 class LokalesSpeichern {
-  String id = "id";
-  String path = "path";
-  String checklistkey = "checklist";
-  LokalesSpeichern(String id, String path) {
-    this.id = id;
-    this.path = path;
-  }
+  String id;
+  String path;
+  final checklistkey = "checklist";
+  LokalesSpeichern({required String this.id, required String this.path}) {}
   void dateienSpeichern(List<Checkliste> checklist) {
     // Hier können auch Einstellungen für z.B. Settings hinzugefügt werden
     final instance = Localstore.instance;
