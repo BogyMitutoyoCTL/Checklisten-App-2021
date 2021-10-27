@@ -43,12 +43,12 @@ class _StartseiteState extends State<Startseite> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
+              padding: const EdgeInsets.only(bottom: 50.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 5.0),
+                    padding: const EdgeInsets.only(left: 10.0),
                     child: ElevatedButton(
                         onPressed: settings, child: Icon(Icons.settings)),
                   ),
@@ -63,7 +63,7 @@ class _StartseiteState extends State<Startseite> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 5.0),
+                    padding: const EdgeInsets.only(right: 10.0),
                     child: ElevatedButton(
                         onPressed: onPressed, child: Icon(Icons.search)),
                   )
@@ -73,7 +73,7 @@ class _StartseiteState extends State<Startseite> {
             Column(
               children: [
                 Container(
-                  margin: EdgeInsets.all(5),
+                  margin: EdgeInsets.all(10),
                   child: ElevatedButton(
                       child: Container(child: Text('Checkliste 1')),
                       style: ElevatedButton.styleFrom(
@@ -83,7 +83,7 @@ class _StartseiteState extends State<Startseite> {
                       onPressed: () {}),
                 ),
                 Container(
-                  margin: EdgeInsets.all(5),
+                  margin: EdgeInsets.all(10),
                   child: ElevatedButton(
                       child: Container(child: Text('Checkliste 2')),
                       style: ElevatedButton.styleFrom(
@@ -93,7 +93,7 @@ class _StartseiteState extends State<Startseite> {
                       onPressed: () {}),
                 ),
                 Container(
-                  margin: EdgeInsets.all(5),
+                  margin: EdgeInsets.all(10),
                   child: ElevatedButton(
                       child: Container(child: Text('Checkliste 3')),
                       style: ElevatedButton.styleFrom(
