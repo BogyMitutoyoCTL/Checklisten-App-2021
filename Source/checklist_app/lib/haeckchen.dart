@@ -1,11 +1,4 @@
 /// Flutter code sample for Checkbox
-
-// This example shows how you can override the default theme of
-// of a [Checkbox] with a [MaterialStateProperty].
-// In this example, the checkbox's color will be `Colors.blue` when the [Checkbox]
-// is being pressed, hovered, or focused. Otherwise, the checkbox's color will
-// be `Colors.red`.
-
 import 'package:flutter/material.dart';
 
 /// This is the stateful widget that the main application instantiates.
@@ -105,7 +98,7 @@ class _HaeckchenState extends State<Haeckchen> {
                   child: Icon(Icons.add_box_sharp),
                 ),
                 ElevatedButton(
-                    onPressed: hinzufuegen, child: Text("hinzufuegen"))
+                    onPressed: hinzufuegen, child: Text("Hinzufügen"))
               ],
             ),
           ],
