@@ -1,3 +1,4 @@
+import 'package:checklist_app/haeckchen.dart';
 import 'package:checklist_app/suchleiste.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class _StartseiteState extends State<Startseite> {
                           minimumSize: Size(double.infinity, 100)),
                       //color: Colors.grey,
                       //textColor: Colors.black,
-                      onPressed: () {}),
+                      onPressed: checklisteanzeigen),
                 ),
                 Container(
                   margin: EdgeInsets.all(10),
@@ -68,4 +69,9 @@ class _StartseiteState extends State<Startseite> {
   }
 
   void onPressed() {}
+
+  void checklisteanzeigen() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => Haeckchen()));
+  }
 }
