@@ -154,14 +154,8 @@ class _StartseiteState extends State<Startseite> {
             .then((value) => refresh());
       }
       if (3 == value) {
-        for (var locallist in widget.startseitenListen) {
-          if (locallist.eintraege == liste.eintraege) {
-            widget.startseitenListen.remove(locallist);
-          }
-        }
-        setState(() {});
+        widget.startseitenListen.remove(liste);
         refresh();
-        print(widget.startseitenListen.first.titel);
       }
     });
   }
