@@ -18,10 +18,14 @@ class Startseite extends StatefulWidget {
 }
 
 class _StartseiteState extends State<Startseite> {
+  String gesuchtesWort = "";
   @override
   Widget build(BuildContext context) {
     List<Container> containerliste = [];
     for (var liste in widget.startseitenListen) {
+      if (!liste.titel.toLowerCase().contains(gesuchtesWort.toLowerCase())) {
+        continue;
+      }
       var icon = Icons.assignment_late_outlined;
       var marked = true;
       for (var eintrag in liste.eintraege) {
@@ -81,7 +85,7 @@ class _StartseiteState extends State<Startseite> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Suchleise(),
+            Suchleiste(gesuchtesWortAktualisieren),
             Column(
               children: containerliste,
             ),
@@ -95,6 +99,11 @@ class _StartseiteState extends State<Startseite> {
         child: Icon(Icons.add),
       ),
     );
+  }
+
+  void gesuchtesWortAktualisieren(String wort) {
+    gesuchtesWort = wort;
+    refresh();
   }
 
   void onPressed() {}

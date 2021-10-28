@@ -2,25 +2,28 @@ import 'package:checklist_app/einstellungen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Suchleise extends StatefulWidget {
-  const Suchleise({Key? key}) : super(key: key);
+class Suchleiste extends StatefulWidget {
+  void Function(String wort) gesuchtesWortAktualisieren;
+
+  Suchleiste(void Function(String wort) this.gesuchtesWortAktualisieren,
+      {Key? key})
+      : super(key: key);
 
   @override
-  _SuchleiseState createState() => _SuchleiseState();
+  _SuchleisteState createState() => _SuchleisteState();
 }
 
-class _SuchleiseState extends State<Suchleise> {
+class _SuchleisteState extends State<Suchleiste> {
   final TextEditingController _controller = TextEditingController();
-
-  String _text = "";
-
+  String gesuchteswort = "";
   @override
   void initState() {
     super.initState();
-    _controller.text = _text;
+    _controller.text = gesuchteswort;
     _controller.addListener(() {
       setState(() {
-        _text = _controller.text;
+        gesuchteswort = _controller.text;
+        widget.gesuchtesWortAktualisieren(gesuchteswort);
       });
     });
   }
