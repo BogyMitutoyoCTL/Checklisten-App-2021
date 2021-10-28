@@ -107,8 +107,8 @@ class _StartseiteState extends State<Startseite> {
 
   void createChecklist() {
     Navigator.of(context)
-        .push(
-            MaterialPageRoute(builder: (context) => NeueChecklisteErstellen()))
+        .push(MaterialPageRoute(
+            builder: (context) => ChecklisteBearbeiten(new Checkliste())))
         .then((checklist) => addChecklist(checklist));
   }
 
