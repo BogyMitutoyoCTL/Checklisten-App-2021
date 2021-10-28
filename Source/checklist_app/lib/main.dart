@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  LokalesSpeichern().dateienLoeschen();
   List<Checkliste>? allLists = await LokalesSpeichern().dateienAusgeben();
   runApp(BogyChecklistApp(allLists!));
 }
