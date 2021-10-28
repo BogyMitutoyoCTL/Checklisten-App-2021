@@ -17,13 +17,11 @@ void main() {
 
   Checkliste liste1 = Checkliste(
       titel: 'Einkaufsliste',
-      notizen: 'Beim Aldi einkaufen',
+      notizen: 'Notizen',
       eintraege: eintragliste1); //new
 
   Checkliste liste2 = Checkliste(
-      titel: 'Schulliste',
-      notizen: 'Schachen für die Schule einkaufen',
-      eintraege: eintragliste2);
+      titel: 'Schulliste', notizen: 'Notizen', eintraege: eintragliste2);
 
   List<Checkliste> demochecklisten = [liste1, liste2];
 
