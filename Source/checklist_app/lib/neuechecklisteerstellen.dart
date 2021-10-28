@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'klassecheckliste.dart';
 
 class NeueChecklisteErstellen extends StatefulWidget {
   const NeueChecklisteErstellen({Key? key}) : super(key: key);
@@ -10,11 +11,10 @@ class NeueChecklisteErstellen extends StatefulWidget {
 }
 
 class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
-  final TextEditingController namenController = TextEditingController();
+  final TextEditingController titelController = TextEditingController();
   final TextEditingController sachController = TextEditingController();
+  Checkliste c = new Checkliste();
   String sachString = "";
-  String checklistenName = "";
-  List<String> sachStrings = [];
 
   get onPressed => null;
 
@@ -22,10 +22,10 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   void initState() {
     super.initState();
 
-    namenController.text = checklistenName;
-    namenController.addListener(() {
+    titelController.text = c.titel;
+    titelController.addListener(() {
       setState(() {
-        checklistenName = namenController.text;
+        c.titel = titelController.text;
       });
     });
 
@@ -41,19 +41,19 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    namenController.dispose();
+    titelController.dispose();
     sachController.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> listezumAnzeigen = [];
-    for (var neuerString in sachStrings) {
+    for (var eintrag in c.eintraege) {
       Widget grossserText = Row(
         children: [
-          Expanded(child: Text(neuerString)),
+          Expanded(child: Text(eintrag.text)),
           ElevatedButton(
-              onPressed: () => loeschen(neuerString),
+              onPressed: () => loeschen(eintrag),
               child: Icon(Icons.backspace_outlined))
         ],
       );
@@ -64,7 +64,7 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
       Padding(
           padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
           child: TextFormField(
-              controller: namenController,
+              controller: titelController,
               textAlign: TextAlign.center,
               autofocus: true,
               decoration: InputDecoration.collapsed(
@@ -111,19 +111,22 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
     );
   }
 
-  void speichern() {}
+  void speichern() {
+    Navigator.of(context).pop(c);
+  }
 
   void hinzufuegen() {
     if (sachString != "") {
-      sachStrings.add(sachString);
+      var e = Eintrag(text: sachString);
+      c.eintraege.add(e);
       sachString = "";
       sachController.text = "";
       setState(() {});
     }
   }
 
-  void loeschen(String neuerString) {
-    sachStrings.remove(neuerString);
+  void loeschen(Eintrag eintrag) {
+    c.eintraege.remove(eintrag);
     setState(() {});
   }
 }
