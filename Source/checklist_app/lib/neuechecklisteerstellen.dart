@@ -115,9 +115,13 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   void speichern() {
     List<Eintrag> eintraege = [];
     for (var eintrag in sachStrings) {
-      eintraege.add(Eintrag(text: eintrag));
+      if (eintrag != '') {
+        eintraege.add(Eintrag(text: eintrag));
+      }
     }
-    eintraege.add(Eintrag(text: sachString));
+    if (sachString != null) {
+      eintraege.add(Eintrag(text: sachString));
+    }
     var checkliste = new Checkliste(
         titel: checklistenName, eintraege: eintraege, notizen: '');
     Navigator.of(context).pop(checkliste);
