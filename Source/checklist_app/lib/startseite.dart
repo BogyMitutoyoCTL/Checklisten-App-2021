@@ -125,10 +125,9 @@ class _StartseiteState extends State<Startseite> {
     setState(() {});
   }
 
-  addChecklist(Checkliste? checklist) async {
+  addChecklist(Checkliste? checklist) {
     widget.startseitenListen.add(checklist!);
     LokalesSpeichern().dateienSpeichern(widget.startseitenListen);
-    var x = await LokalesSpeichern().dateienAusgeben();
     refresh();
   }
 

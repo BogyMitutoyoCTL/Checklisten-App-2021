@@ -15,14 +15,13 @@ class Checkliste {
   late List<Eintrag> eintraege = [];
   Checkliste(
       {this.titel = "",
-        this.notizen = "",
-        List<Eintrag>? eintraege,
-        this.bild}) {
+      this.notizen = "",
+      List<Eintrag>? eintraege,
+      this.bild}) {
     if (eintraege != null) {
       this.eintraege = eintraege;
     }
   }
-
 
   Map toMap() {
     var map = {};
