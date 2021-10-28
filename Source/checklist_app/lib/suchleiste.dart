@@ -34,21 +34,17 @@ class _SuchleiseState extends State<Suchleise> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10, 0, 10, 50.0),
+      padding: const EdgeInsets.fromLTRB(85, 0, 10, 50.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ElevatedButton(onPressed: settings, child: Icon(Icons.settings)),
-          Container(
-            width: 10,
-          ),
           Expanded(
             child: TextFormField(
               controller: _controller,
               textAlign: TextAlign.center,
               autofocus: true,
+              style: TextStyle(fontSize: 23),
               decoration: InputDecoration.collapsed(
-                  hintText: "Search", border: InputBorder.none),
+                  hintText: "Suchefeld:", border: InputBorder.none),
             ),
           ),
           Container(

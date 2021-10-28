@@ -5,6 +5,7 @@ import 'package:checklist_app/neuechecklisteerstellen.dart';
 import 'package:checklist_app/suchleiste.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class Startseite extends StatefulWidget {
   late List<Checkliste> startseitenListen;
@@ -53,6 +54,27 @@ class _StartseiteState extends State<Startseite> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: PopupMenuButton(
+            onSelected: popupmenueselected,
+            color: Colors.grey,
+            itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Text("Darkmode"),
+                    value: 1,
+                  ),
+                  PopupMenuItem(
+                    child: Text("Sprache ändern"),
+                    value: 2,
+                  ),
+                  PopupMenuItem(
+                    child: Text("Fehler melden"),
+                    value: 3,
+                  ),
+                  PopupMenuItem(
+                    child: Text("Freunde einladen "),
+                    value: 4,
+                  ),
+                ]),
         title: Text("Deine Checklisten"),
         centerTitle: true,
       ),
@@ -127,5 +149,18 @@ class _StartseiteState extends State<Startseite> {
 
       if (value != null) print(value);
     });
+  }
+
+  void popupmenueselected(int value) {
+    if (1 == value) {}
+    if (2 == value) {}
+    if (3 == value) {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => WebView(
+                initialUrl:
+                    "https://github.com/BogyMitutoyoCTL/Checklisten-App-2021/issues/",
+              )));
+    }
+    if (4 == value) {}
   }
 }
