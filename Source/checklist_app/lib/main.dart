@@ -1,6 +1,7 @@
 import 'package:checklist_app/klassecheckliste.dart';
 import 'package:checklist_app/startseite.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   Eintrag eintrag1 = Eintrag(text: 'Gemüse', anzahl: 3, erledigt: true);
@@ -37,6 +38,8 @@ class BogyChecklistApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.grey,
