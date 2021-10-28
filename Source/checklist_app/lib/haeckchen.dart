@@ -1,9 +1,13 @@
 /// Flutter code sample for Checkbox
+import 'package:checklist_app/klassecheckliste.dart';
 import 'package:flutter/material.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class Haeckchen extends StatefulWidget {
-  const Haeckchen({Key? key}) : super(key: key);
+  late Checkliste haeckchencheckliste;
+  Haeckchen(Checkliste liste, {Key? key}) : super(key: key) {
+    haeckchencheckliste = liste;
+  }
 
   @override
   State<Haeckchen> createState() => _HaeckchenState();
@@ -11,9 +15,6 @@ class Haeckchen extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _HaeckchenState extends State<Haeckchen> {
-  bool isBananeChecked = false;
-  bool isApfelChecked = false;
-
   @override
   final TextEditingController _controller = TextEditingController();
   String _text = "";
@@ -38,70 +39,65 @@ class _HaeckchenState extends State<Haeckchen> {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> liste = [];
+
+    liste.add(Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: TextFormField(
+          controller: _controller,
+          textAlign: TextAlign.center,
+          autofocus: true,
+          decoration: InputDecoration.collapsed(
+              hintText: widget.haeckchencheckliste.notizen,
+              border: InputBorder.none),
+        )));
+
+    liste.add(Row(
+      children: [
+        Placeholder(
+          // Todo: Bild einfügen,
+          fallbackHeight: 250,
+          fallbackWidth: 392,
+        )
+      ],
+    ));
+
+    for (var eintrag in widget.haeckchencheckliste.eintraege) {
+      Row r = Row(
+        children: [
+          Checkbox(
+            checkColor: Colors.white,
+            value: eintrag.erledigt,
+            onChanged: (bool? value) {
+              setState(() {
+                eintrag.erledigt = value!;
+              });
+            },
+          ),
+          Text(eintrag.text),
+        ],
+      );
+      liste.add(r);
+    }
+
+    liste.add(Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        ElevatedButton(
+          onPressed: settings,
+          child: Icon(Icons.add_box_sharp),
+        ),
+        ElevatedButton(onPressed: hinzufuegen, child: Text("Hinzufügen"))
+      ],
+    ));
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Checkliste1"),
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
-            Row(
-              children: [
-                Checkbox(
-                  checkColor: Colors.white,
-                  value: isBananeChecked,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isBananeChecked = value!;
-                    });
-                  },
-                ),
-                Text("Banane"),
-              ],
-            ),
-            Row(
-              children: [
-                Checkbox(
-                  checkColor: Colors.white,
-                  value: isApfelChecked,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isApfelChecked = value!;
-                    });
-                  },
-                ),
-                Text("Apfel"),
-              ],
-            ),
-            Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: TextFormField(
-                  controller: _controller,
-                  textAlign: TextAlign.center,
-                  autofocus: true,
-                  decoration: InputDecoration.collapsed(
-                      hintText: "Notizen", border: InputBorder.none),
-                )),
-            Row(
-              children: [
-                Placeholder(
-                  fallbackHeight: 300,
-                  fallbackWidth: 392,
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ElevatedButton(
-                  onPressed: settings,
-                  child: Icon(Icons.add_box_sharp),
-                ),
-                ElevatedButton(
-                    onPressed: hinzufuegen, child: Text("Hinzufügen"))
-              ],
-            ),
-          ],
+          children: liste,
         ),
       ),
     );

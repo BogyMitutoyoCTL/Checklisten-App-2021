@@ -1,39 +1,46 @@
 import 'package:checklist_app/klassecheckliste.dart';
 import 'package:checklist_app/startseite.dart';
 import 'package:flutter/material.dart';
+import 'lokalesspeichern.dart';
 
 void main() {
-  List<Checkliste> demochecklisten = [];
-  Checkliste c = Checkliste(); //new
-  c.titel = "einkaufsliste";
-  c.notizen = "beim Aldi einkaufen";
+  LokalesSpeichern save = LokalesSpeichern(path: 'path', id: 'id');
 
-  Eintrag g = Eintrag();
-  g.text = "gemüse";
-  g.anzahl = 3;
-  g.erledigt = true;
-  c.eintraege.add(g);
-  Eintrag o = Eintrag();
-  o.text = "Obst";
-  o.anzahl = 5;
-  o.erledigt = false;
-  c.eintraege.add(o);
-  demochecklisten.add(c);
+  Eintrag eintrag1 = Eintrag(text: 'Gemüse', anzahl: 3, erledigt: true);
 
-  Checkliste s = Checkliste();
-  s.titel = "schulliste";
-  s.notizen = "Sachen für die Schule einkaufen";
+  Eintrag eintrag2 = Eintrag(text: 'Obst', erledigt: false, anzahl: 5);
 
-  Eintrag st = Eintrag();
-  st.text = "Stifte";
-  st.anzahl = 10;
-  s.eintraege.add(st);
-  demochecklisten.add(s);
+  Eintrag eintrag4 = Eintrag(text: 'Süßigkeiten');
 
-  runApp(BogyChecklistApp());
+  List<Eintrag> eintragliste1 = [eintrag1, eintrag2, eintrag4];
+
+  Eintrag eintrag3 = Eintrag(text: 'Stifte', anzahl: 10);
+
+  List<Eintrag> eintragliste2 = [eintrag3];
+
+  Checkliste liste1 = Checkliste(
+      titel: 'Einkaufsliste',
+      notizen: 'Beim Aldi einkaufen',
+      eintraege: eintragliste1); //new
+
+  Checkliste liste2 = Checkliste(
+      titel: 'Schulliste',
+      notizen: 'Schachen für die Schule einkaufen',
+      eintraege: eintragliste2);
+
+  List<Checkliste> demochecklisten = [liste1, liste2];
+
+  runApp(BogyChecklistApp(demochecklisten, save));
 }
 
 class BogyChecklistApp extends StatelessWidget {
+  late List<Checkliste> appListen;
+  late LokalesSpeichern listenSpeicher;
+  BogyChecklistApp(List<Checkliste> demochecklisten, LokalesSpeichern save) {
+    appListen = demochecklisten;
+    listenSpeicher = save;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,7 +48,7 @@ class BogyChecklistApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.grey,
           canvasColor: Color.fromARGB(254, 190, 195, 200)),
-      home: Startseite(),
+      home: Startseite(appListen, listenSpeicher),
     );
   }
 }

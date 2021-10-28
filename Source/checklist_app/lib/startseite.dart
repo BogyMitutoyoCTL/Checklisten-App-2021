@@ -1,11 +1,19 @@
 import 'package:checklist_app/haeckchen.dart';
+import 'package:checklist_app/klassecheckliste.dart';
+import 'package:checklist_app/lokalesspeichern.dart';
 import 'package:checklist_app/neuechecklisteerstellen.dart';
 import 'package:checklist_app/suchleiste.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Startseite extends StatefulWidget {
-  Startseite({Key? key}) : super(key: key);
+  late List<Checkliste> startseitenListen;
+  late LokalesSpeichern listenSpeicher;
+  Startseite(List<Checkliste> meineListen, LokalesSpeichern save, {Key? key})
+      : super(key: key) {
+    startseitenListen = meineListen;
+    listenSpeicher = save;
+  }
 
   @override
   _StartseiteState createState() => _StartseiteState();
@@ -14,6 +22,35 @@ class Startseite extends StatefulWidget {
 class _StartseiteState extends State<Startseite> {
   @override
   Widget build(BuildContext context) {
+    List<Container> containerliste = [];
+
+    for (var liste in widget.startseitenListen) {
+      var icon = Icons.assignment_late_outlined;
+      var marked = true;
+      for (var eintrag in liste.eintraege) {
+        marked = marked && eintrag.erledigt;
+      }
+      if (marked == true) {
+        icon = Icons.assignment_turned_in_outlined;
+      }
+      var c = Container(
+        margin: EdgeInsets.all(10),
+        child: ElevatedButton(
+            child: Container(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Text(liste.titel), Icon(icon)],
+            )),
+            style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 100)),
+            //color: Colors.grey,
+            //textColor: Colors.black,
+            onPressed: () => checklisteanzeigen(liste)),
+      );
+      containerliste.add(c);
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Deine Checklisten"),
@@ -24,38 +61,7 @@ class _StartseiteState extends State<Startseite> {
           children: [
             Suchleise(),
             Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                      child: Container(child: Text('Checkliste 1')),
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(double.infinity, 100)),
-                      //color: Colors.grey,
-                      //textColor: Colors.black,
-                      onPressed: checklisteanzeigen),
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                      child: Container(child: Text('Checkliste 2')),
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(double.infinity, 100)),
-                      //color: Colors.grey,
-                      //textColor: Colors.black,
-                      onPressed: () {}),
-                ),
-                Container(
-                  margin: EdgeInsets.all(10),
-                  child: ElevatedButton(
-                      child: Container(child: Text('Checkliste 3')),
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: Size(double.infinity, 100)),
-                      //color: Colors.grey,
-                      //textColor: Colors.black,
-                      onPressed: () {}),
-                )
-              ],
+              children: containerliste,
             ),
           ],
         ),
@@ -71,13 +77,18 @@ class _StartseiteState extends State<Startseite> {
 
   void onPressed() {}
 
-  void checklisteanzeigen() {
+  void checklisteanzeigen(Checkliste liste) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Haeckchen()));
+        .push(MaterialPageRoute(builder: (context) => Haeckchen(liste)))
+        .then((value) => refresh());
   }
 
   void neuechecklisteerstellen() {
     Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => NeueChecklisteErstellen()));
+  }
+
+  void refresh() {
+    setState(() {});
   }
 }
