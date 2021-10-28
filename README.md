@@ -129,3 +129,8 @@ Am Mittwoch liefen mehrere Arbeiten parallel:
 * wir haben Demo-Checklisten erstellt, basierend auf der neuen Klasse
 * Möglichkeiten zum Abspeichern von Daten wurden untersucht
 
+Herr Haufe, Lehrer vom Gymnasium am Rosenberg hat uns besucht und sich den Fortschritt zeigen lassen.
+
+## Donnerstag 28.10.21
+
+Wir haben uns kurz über [Scrum](Scrum.pptx) informiert und die verbleibenden Aufgaben aufgeschrieben und im Taskboard verwaltet.
