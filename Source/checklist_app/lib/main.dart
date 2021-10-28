@@ -1,11 +1,8 @@
 import 'package:checklist_app/klassecheckliste.dart';
 import 'package:checklist_app/startseite.dart';
 import 'package:flutter/material.dart';
-import 'lokalesspeichern.dart';
 
 void main() {
-  LokalesSpeichern save = LokalesSpeichern(path: 'path', id: 'id');
-
   Eintrag eintrag1 = Eintrag(text: 'Gemüse', anzahl: 3, erledigt: true);
 
   Eintrag eintrag2 = Eintrag(text: 'Obst', erledigt: false, anzahl: 5);
@@ -30,15 +27,13 @@ void main() {
 
   List<Checkliste> demochecklisten = [liste1, liste2];
 
-  runApp(BogyChecklistApp(demochecklisten, save));
+  runApp(BogyChecklistApp(demochecklisten));
 }
 
 class BogyChecklistApp extends StatelessWidget {
   late List<Checkliste> appListen;
-  late LokalesSpeichern listenSpeicher;
-  BogyChecklistApp(List<Checkliste> demochecklisten, LokalesSpeichern save) {
+  BogyChecklistApp(List<Checkliste> demochecklisten) {
     appListen = demochecklisten;
-    listenSpeicher = save;
   }
 
   @override
@@ -48,7 +43,7 @@ class BogyChecklistApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.grey,
           canvasColor: Color.fromARGB(254, 190, 195, 200)),
-      home: Startseite(appListen, listenSpeicher),
+      home: Startseite(appListen),
     );
   }
 }
