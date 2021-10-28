@@ -93,8 +93,8 @@ class _StartseiteState extends State<Startseite> {
     setState(() {});
   }
 
-  fuegeNeueChecklisteHinzu(List<Checkliste> checkliste) {
-    widget.startseitenListen = checkliste;
+  fuegeNeueChecklisteHinzu(Checkliste checkliste) {
+    widget.startseitenListen.add(checkliste);
     refresh();
   }
 
