@@ -4,12 +4,16 @@ class Checkliste {
   Image? bild;
   String titel = "";
   String notizen = "";
-  List<Eintrag> eintraege = [];
+  late List<Eintrag> eintraege = [];
   Checkliste(
-      {required this.titel,
-      required this.notizen,
-      required this.eintraege,
-      this.bild});
+      {this.titel = "",
+      this.notizen = "",
+      List<Eintrag>? eintraege,
+      this.bild}) {
+    if (eintraege != null) {
+      this.eintraege = eintraege;
+    }
+  }
 }
 
 class Eintrag {
