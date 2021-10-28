@@ -40,7 +40,7 @@ class BogyChecklistApp extends StatelessWidget {
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      title: 'Flutter Demo',
+      title: 'Checkliste',
       theme: ThemeData(
           primarySwatch: Colors.grey,
           canvasColor: Color.fromARGB(254, 190, 195, 200)),
