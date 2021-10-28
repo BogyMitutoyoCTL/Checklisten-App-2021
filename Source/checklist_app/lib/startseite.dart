@@ -19,7 +19,6 @@ class _StartseiteState extends State<Startseite> {
   @override
   Widget build(BuildContext context) {
     List<Container> containerliste = [];
-
     for (var liste in widget.startseitenListen) {
       var icon = Icons.assignment_late_outlined;
       var marked = true;
@@ -80,11 +79,18 @@ class _StartseiteState extends State<Startseite> {
   }
 
   void neuechecklisteerstellen() {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => NeueChecklisteErstellen()));
+    Navigator.of(context)
+        .push(
+            MaterialPageRoute(builder: (context) => NeueChecklisteErstellen()))
+        .then((liste) => fuegeNeueChecklisteHinzu(liste));
   }
 
   void refresh() {
     setState(() {});
+  }
+
+  fuegeNeueChecklisteHinzu(List<Checkliste> checkliste) {
+    widget.startseitenListen = checkliste;
+    refresh();
   }
 }

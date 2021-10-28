@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'klassecheckliste.dart';
+
 class NeueChecklisteErstellen extends StatefulWidget {
   const NeueChecklisteErstellen({Key? key}) : super(key: key);
 
@@ -111,7 +113,13 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
     );
   }
 
-  void speichern() {}
+  void speichern() {
+    List<Eintrag> eintraege = [new Eintrag(text: "oiuoiuoiu")];
+    var checkliste = new Checkliste(
+        titel: 'sidhulaisu', eintraege: eintraege, notizen: 'sdijoisajdfoisd');
+    List<Checkliste> testliste = [checkliste];
+    Navigator.of(context).pop(testliste);
+  }
 
   void hinzufuegen() {
     if (sachString != "") {
