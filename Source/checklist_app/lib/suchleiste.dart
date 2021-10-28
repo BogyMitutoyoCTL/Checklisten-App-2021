@@ -44,7 +44,7 @@ class _SuchleiseState extends State<Suchleise> {
               autofocus: true,
               style: TextStyle(fontSize: 23),
               decoration: InputDecoration.collapsed(
-                  hintText: "Suchefeld:", border: InputBorder.none),
+                  hintText: "Suche:", border: InputBorder.none),
             ),
           ),
           Container(

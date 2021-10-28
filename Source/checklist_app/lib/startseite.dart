@@ -34,7 +34,7 @@ class _StartseiteState extends State<Startseite> {
         margin: EdgeInsets.all(10),
         child: GestureDetector(
           onTapDown: (TapDownDetails details) =>
-              _showPopupMenu(details.globalPosition),
+              _showPopupMenu(details.globalPosition, liste),
           child: ElevatedButton(
               child: Container(
                   child: Row(
@@ -59,16 +59,16 @@ class _StartseiteState extends State<Startseite> {
             color: Colors.grey,
             itemBuilder: (context) => [
                   PopupMenuItem(
-                    child: Text("Darkmode"),
-                    value: 1,
-                  ),
-                  PopupMenuItem(
                     child: Text("Sprache ändern"),
                     value: 2,
                   ),
                   PopupMenuItem(
                     child: Text("Fehler melden"),
                     value: 3,
+                  ),
+                  PopupMenuItem(
+                    child: Text("Feature Wunsch"),
+                    value: 1,
                   ),
                   PopupMenuItem(
                     child: Text("Freunde einladen "),
@@ -122,7 +122,7 @@ class _StartseiteState extends State<Startseite> {
     refresh();
   }
 
-  void _showPopupMenu(Offset globalPosition) async {
+  void _showPopupMenu(Offset globalPosition, Checkliste liste) async {
     double left = globalPosition.dx;
     double top = globalPosition.dy;
     await showMenu(
@@ -148,19 +148,45 @@ class _StartseiteState extends State<Startseite> {
 // NOTE: even you didnt select item this method will be called with null of value so you should call your call back with checking if value is not null
 
       if (value != null) print(value);
+      if (1 == value) {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Haeckchen(liste)))
+            .then((value) => refresh());
+      }
+      if (3 == value) {
+        for (var locallist in widget.startseitenListen) {
+          if (locallist.eintraege == liste.eintraege) {
+            widget.startseitenListen.remove(locallist);
+          }
+        }
+        setState(() {});
+        refresh();
+        print(widget.startseitenListen.first.titel);
+      }
     });
   }
 
   void popupmenueselected(int value) {
-    if (1 == value) {}
-    if (2 == value) {}
-    if (3 == value) {
+    if (1 == value) {
+      //Feature Wunsch
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => WebView(
                 initialUrl:
                     "https://github.com/BogyMitutoyoCTL/Checklisten-App-2021/issues/",
               )));
     }
-    if (4 == value) {}
+    if (2 == value) {
+      //Sprache ändern}
+      if (3 == value) {
+        //Fehler melden
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => WebView(
+                  initialUrl:
+                      "https://github.com/BogyMitutoyoCTL/Checklisten-App-2021/issues/",
+                )));
+      }
+      if (4 == value) {} // Freunde einladen
+
+    }
   }
 }
