@@ -1,5 +1,6 @@
 import 'package:checklist_app/haeckchen.dart';
 import 'package:checklist_app/klassecheckliste.dart';
+import 'package:checklist_app/lokalesspeichern.dart';
 import 'package:checklist_app/neuechecklisteerstellen.dart';
 import 'package:checklist_app/suchleiste.dart';
 import 'package:flutter/cupertino.dart';
@@ -44,7 +45,7 @@ class _StartseiteState extends State<Startseite> {
                   minimumSize: Size(double.infinity, 100)),
               //color: Colors.grey,
               //textColor: Colors.black,
-              onPressed: () => checklisteanzeigen(liste)),
+              onPressed: () => showChecklist(liste)),
         ),
       );
       containerliste.add(c);
@@ -66,7 +67,7 @@ class _StartseiteState extends State<Startseite> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: neuechecklisteerstellen,
+        onPressed: createChecklist,
         tooltip: 'Neue Checkliste erstellen',
         backgroundColor: Colors.grey,
         child: Icon(Icons.add),
@@ -76,25 +77,26 @@ class _StartseiteState extends State<Startseite> {
 
   void onPressed() {}
 
-  void checklisteanzeigen(Checkliste liste) {
+  void showChecklist(Checkliste checklist) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => Haeckchen(liste)))
+        .push(MaterialPageRoute(builder: (context) => Haeckchen(checklist)))
         .then((value) => refresh());
   }
 
-  void neuechecklisteerstellen() {
+  void createChecklist() {
     Navigator.of(context)
         .push(
             MaterialPageRoute(builder: (context) => NeueChecklisteErstellen()))
-        .then((liste) => fuegeNeueChecklisteHinzu(liste));
+        .then((checklist) => addChecklist(checklist));
   }
 
   void refresh() {
     setState(() {});
   }
 
-  fuegeNeueChecklisteHinzu(Checkliste checkliste) {
-    widget.startseitenListen.add(checkliste);
+  addChecklist(Checkliste checklist) async {
+    widget.startseitenListen.add(checklist);
+    LokalesSpeichern().dateienSpeichern(widget.startseitenListen);
     refresh();
   }
 
