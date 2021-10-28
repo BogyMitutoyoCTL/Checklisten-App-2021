@@ -119,9 +119,6 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
         eintraege.add(Eintrag(text: eintrag));
       }
     }
-    if (sachString != null) {
-      eintraege.add(Eintrag(text: sachString));
-    }
     var checkliste = new Checkliste(
         titel: checklistenName, eintraege: eintraege, notizen: '');
     Navigator.of(context).pop(checkliste);
