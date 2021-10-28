@@ -81,13 +81,9 @@ class _HaeckchenState extends State<Haeckchen> {
     }
 
     liste.add(Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        ElevatedButton(
-          onPressed: settings,
-          child: Icon(Icons.add_box_sharp),
-        ),
-        ElevatedButton(onPressed: hinzufuegen, child: Text("Hinzufügen"))
+        ElevatedButton(onPressed: hinzufuegen, child: Text("Bearbeiten"))
       ],
     ));
 

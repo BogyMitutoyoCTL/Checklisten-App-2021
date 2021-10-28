@@ -2,18 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'klassecheckliste.dart';
 
-class NeueChecklisteErstellen extends StatefulWidget {
-  const NeueChecklisteErstellen({Key? key}) : super(key: key);
+class ChecklisteBearbeiten extends StatefulWidget {
+  Checkliste c;
+  ChecklisteBearbeiten(Checkliste this.c, {Key? key}) : super(key: key);
 
   @override
-  _NeueChecklisteErstellenState createState() =>
-      _NeueChecklisteErstellenState();
+  _ChecklisteBearbeitenState createState() => _ChecklisteBearbeitenState();
 }
 
-class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
+class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
   final TextEditingController titelController = TextEditingController();
   final TextEditingController sachController = TextEditingController();
-  Checkliste c = new Checkliste();
+
   String sachString = "";
 
   get onPressed => null;
@@ -22,10 +22,10 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   void initState() {
     super.initState();
 
-    titelController.text = c.titel;
+    titelController.text = widget.c.titel;
     titelController.addListener(() {
       setState(() {
-        c.titel = titelController.text;
+        widget.c.titel = titelController.text;
       });
     });
 
@@ -48,7 +48,7 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   @override
   Widget build(BuildContext context) {
     List<Widget> listezumAnzeigen = [];
-    for (var eintrag in c.eintraege) {
+    for (var eintrag in widget.c.eintraege) {
       Widget grossserText = Row(
         children: [
           Expanded(child: Text(eintrag.text)),
@@ -112,13 +112,13 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   }
 
   void speichern() {
-    Navigator.of(context).pop(c);
+    Navigator.of(context).pop(widget.c);
   }
 
   void hinzufuegen() {
     if (sachString != "") {
       var e = Eintrag(text: sachString);
-      c.eintraege.add(e);
+      widget.c.eintraege.add(e);
       sachString = "";
       sachController.text = "";
       setState(() {});
@@ -126,7 +126,7 @@ class _NeueChecklisteErstellenState extends State<NeueChecklisteErstellen> {
   }
 
   void loeschen(Eintrag eintrag) {
-    c.eintraege.remove(eintrag);
+    widget.c.eintraege.remove(eintrag);
     setState(() {});
   }
 }
