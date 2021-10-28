@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
 import 'klassecheckliste.dart';
 
 class ChecklisteBearbeiten extends StatefulWidget {
@@ -13,6 +17,7 @@ class ChecklisteBearbeiten extends StatefulWidget {
 class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
   final TextEditingController titelController = TextEditingController();
   final TextEditingController sachController = TextEditingController();
+  final ImagePicker _picker = ImagePicker();
 
   String sachString = "";
 
@@ -103,10 +108,23 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
         padding: const EdgeInsets.all(8.0),
         child: Column(children: children2),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: speichern,
-        tooltip: "Speichern",
-        child: Icon(Icons.save_alt),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: FloatingActionButton(
+              onPressed: photo,
+              tooltip: "Bild auswählen",
+              child: Icon(Icons.photo),
+            ),
+          ),
+          FloatingActionButton(
+            onPressed: speichern,
+            tooltip: "Speichern",
+            child: Icon(Icons.save_alt),
+          ),
+        ],
       ),
     );
   }
@@ -128,5 +146,16 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
   void loeschen(Eintrag eintrag) {
     widget.c.eintraege.remove(eintrag);
     setState(() {});
+  }
+
+  void photo() {
+    callCamera();
+  }
+
+  Future<void> callCamera() async {
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      widget.c.bild = Image.file(File(image.path));
+    }
   }
 }
