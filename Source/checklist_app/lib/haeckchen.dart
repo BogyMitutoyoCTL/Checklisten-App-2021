@@ -2,6 +2,8 @@
 import 'package:checklist_app/klassecheckliste.dart';
 import 'package:flutter/material.dart';
 
+import 'neuechecklisteerstellen.dart';
+
 /// This is the stateful widget that the main application instantiates.
 class Haeckchen extends StatefulWidget {
   late Checkliste haeckchencheckliste;
@@ -83,7 +85,7 @@ class _HaeckchenState extends State<Haeckchen> {
     liste.add(Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        ElevatedButton(onPressed: hinzufuegen, child: Text("Bearbeiten"))
+        ElevatedButton(onPressed: bearbeiten, child: Text("Bearbeiten"))
       ],
     ));
 
@@ -101,5 +103,15 @@ class _HaeckchenState extends State<Haeckchen> {
 
   void settings() {}
 
-  void hinzufuegen() {}
+  void bearbeiten() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(
+            builder: (context) =>
+                ChecklisteBearbeiten(widget.haeckchencheckliste)))
+        .then((value) => refresh());
+  }
+
+  void refresh() {
+    setState(() {});
+  }
 }
