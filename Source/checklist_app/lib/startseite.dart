@@ -1,6 +1,5 @@
 import 'package:checklist_app/haeckchen.dart';
 import 'package:checklist_app/klassecheckliste.dart';
-import 'package:checklist_app/lokalesspeichern.dart';
 import 'package:checklist_app/neuechecklisteerstellen.dart';
 import 'package:checklist_app/suchleiste.dart';
 import 'package:flutter/cupertino.dart';
@@ -8,11 +7,8 @@ import 'package:flutter/material.dart';
 
 class Startseite extends StatefulWidget {
   late List<Checkliste> startseitenListen;
-  late LokalesSpeichern listenSpeicher;
-  Startseite(List<Checkliste> meineListen, LokalesSpeichern save, {Key? key})
-      : super(key: key) {
+  Startseite(List<Checkliste> meineListen, {Key? key}) : super(key: key) {
     startseitenListen = meineListen;
-    listenSpeicher = save;
   }
 
   @override
