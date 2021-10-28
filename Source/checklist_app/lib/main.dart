@@ -1,39 +1,19 @@
 import 'package:checklist_app/klassecheckliste.dart';
+import 'package:checklist_app/lokalesspeichern.dart';
 import 'package:checklist_app/startseite.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  Eintrag eintrag1 = Eintrag(text: 'Gemüse', anzahl: 3, erledigt: true);
-
-  Eintrag eintrag2 = Eintrag(text: 'Obst', erledigt: false, anzahl: 5);
-
-  Eintrag eintrag4 = Eintrag(text: 'Süßigkeiten');
-
-  List<Eintrag> eintragliste1 = [eintrag1, eintrag2, eintrag4];
-
-  Eintrag eintrag3 = Eintrag(text: 'Stifte', anzahl: 10);
-
-  List<Eintrag> eintragliste2 = [eintrag3];
-
-  Checkliste liste1 = Checkliste(
-      titel: 'Einkaufsliste',
-      notizen: 'Beim Aldi einkaufen',
-      eintraege: eintragliste1); //new
-
-  Checkliste liste2 = Checkliste(
-      titel: 'Schulliste',
-      notizen: 'Schachen für die Schule einkaufen',
-      eintraege: eintragliste2);
-
-  List<Checkliste> demochecklisten = [liste1, liste2];
-
-  runApp(BogyChecklistApp(demochecklisten));
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  LokalesSpeichern().dateienLoeschen();
+  List<Checkliste>? allLists = await LokalesSpeichern().dateienAusgeben();
+  runApp(BogyChecklistApp(allLists!));
 }
 
 class BogyChecklistApp extends StatelessWidget {
   late List<Checkliste> appListen;
-  BogyChecklistApp(List<Checkliste> demochecklisten) {
-    appListen = demochecklisten;
+  BogyChecklistApp(List<Checkliste> allLists) {
+    appListen = allLists;
   }
 
   @override
