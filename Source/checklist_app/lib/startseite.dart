@@ -20,8 +20,12 @@ class Startseite extends StatefulWidget {
 class _StartseiteState extends State<Startseite> {
   @override
   Widget build(BuildContext context) {
+    String gesuchtesWort = "";
     List<Container> containerliste = [];
     for (var liste in widget.startseitenListen) {
+      if (!liste.titel.toLowerCase().contains(gesuchtesWort.toLowerCase())) {
+        continue;
+      }
       var icon = Icons.assignment_late_outlined;
       var marked = true;
       for (var eintrag in liste.eintraege) {

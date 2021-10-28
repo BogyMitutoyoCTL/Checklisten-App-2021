@@ -12,15 +12,15 @@ class Suchleise extends StatefulWidget {
 class _SuchleiseState extends State<Suchleise> {
   final TextEditingController _controller = TextEditingController();
 
-  String _text = "";
+  String gesuchteswort = "";
 
   @override
   void initState() {
     super.initState();
-    _controller.text = _text;
+    _controller.text = gesuchteswort;
     _controller.addListener(() {
       setState(() {
-        _text = _controller.text;
+        gesuchteswort = _controller.text;
       });
     });
   }
