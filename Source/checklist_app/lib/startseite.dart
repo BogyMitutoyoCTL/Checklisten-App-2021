@@ -30,18 +30,22 @@ class _StartseiteState extends State<Startseite> {
       }
       var c = Container(
         margin: EdgeInsets.all(10),
-        child: ElevatedButton(
-            child: Container(
-                child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Text(liste.titel), Icon(icon)],
-            )),
-            style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, 100)),
-            //color: Colors.grey,
-            //textColor: Colors.black,
-            onPressed: () => checklisteanzeigen(liste)),
+        child: GestureDetector(
+          onTapDown: (TapDownDetails details) =>
+              _showPopupMenu(details.globalPosition),
+          child: ElevatedButton(
+              child: Container(
+                  child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Text(liste.titel), Icon(icon)],
+              )),
+              style: ElevatedButton.styleFrom(
+                  minimumSize: Size(double.infinity, 100)),
+              //color: Colors.grey,
+              //textColor: Colors.black,
+              onPressed: () => checklisteanzeigen(liste)),
+        ),
       );
       containerliste.add(c);
     }
@@ -92,5 +96,33 @@ class _StartseiteState extends State<Startseite> {
   fuegeNeueChecklisteHinzu(List<Checkliste> checkliste) {
     widget.startseitenListen = checkliste;
     refresh();
+  }
+
+  void _showPopupMenu(Offset globalPosition) async {
+    double left = globalPosition.dx;
+    double top = globalPosition.dy;
+    await showMenu(
+      context: context,
+      position: RelativeRect.fromLTRB(left, top, 100, 100),
+      items: [
+        PopupMenuItem(
+          value: 1,
+          child: Text("View"),
+        ),
+        PopupMenuItem(
+          value: 2,
+          child: Text("Edit"),
+        ),
+        PopupMenuItem(
+          value: 3,
+          child: Text("Delete"),
+        ),
+      ],
+      elevation: 8.0,
+    ).then((value) {
+// NOTE: even you didnt select item this method will be called with null of value so you should call your call back with checking if value is not null
+
+      if (value != null) print(value);
+    });
   }
 }
