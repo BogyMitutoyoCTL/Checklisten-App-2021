@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 const mapText = 'Text';
 const mapErledigt = 'Erledigt';
 const mapAnzahl = 'Anzahl';
@@ -7,16 +9,20 @@ const mapNotizen = 'Notizen';
 const mapEintraege = 'Eintraege';
 
 class Checkliste {
-  //Image? bild;
+  Image? bild;
   String titel = "";
   String notizen = "";
-  List<Eintrag> eintraege = [];
-  Checkliste({
-    required this.titel,
-    required this.notizen,
-    required this.eintraege,
-    /*this.bild*/
-  });
+  late List<Eintrag> eintraege = [];
+  Checkliste(
+      {this.titel = "",
+        this.notizen = "",
+        List<Eintrag>? eintraege,
+        this.bild}) {
+    if (eintraege != null) {
+      this.eintraege = eintraege;
+    }
+  }
+
 
   Map toMap() {
     var map = {};

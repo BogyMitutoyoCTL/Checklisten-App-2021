@@ -134,3 +134,5 @@ Herr Haufe, Lehrer vom Gymnasium am Rosenberg hat uns besucht und sich den Forts
 ## Donnerstag 28.10.21
 
 Wir haben uns kurz über [Scrum](Scrum.pptx) informiert und die verbleibenden Aufgaben aufgeschrieben und im Taskboard verwaltet.
+
+Im Laufe des Tages haben wir auch erfahren, wie [Globalisierung](Globalisierung.pptx) in einer App funktioniert.

@@ -1,0 +1,6 @@
+{
+"buttonDelete": "Delete checklist",
+"@buttonDelete": {
+"description": "The button on the start page"
+}
+}

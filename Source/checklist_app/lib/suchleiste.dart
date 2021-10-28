@@ -2,25 +2,28 @@ import 'package:checklist_app/einstellungen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Suchleise extends StatefulWidget {
-  const Suchleise({Key? key}) : super(key: key);
+class Suchleiste extends StatefulWidget {
+  void Function(String wort) gesuchtesWortAktualisieren;
+
+  Suchleiste(void Function(String wort) this.gesuchtesWortAktualisieren,
+      {Key? key})
+      : super(key: key);
 
   @override
-  _SuchleiseState createState() => _SuchleiseState();
+  _SuchleisteState createState() => _SuchleisteState();
 }
 
-class _SuchleiseState extends State<Suchleise> {
+class _SuchleisteState extends State<Suchleiste> {
   final TextEditingController _controller = TextEditingController();
-
-  String _text = "";
-
+  String gesuchteswort = "";
   @override
   void initState() {
     super.initState();
-    _controller.text = _text;
+    _controller.text = gesuchteswort;
     _controller.addListener(() {
       setState(() {
-        _text = _controller.text;
+        gesuchteswort = _controller.text;
+        widget.gesuchtesWortAktualisieren(gesuchteswort);
       });
     });
   }
@@ -34,21 +37,17 @@ class _SuchleiseState extends State<Suchleise> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10, 0, 10, 50.0),
+      padding: const EdgeInsets.fromLTRB(85, 0, 10, 50.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ElevatedButton(onPressed: settings, child: Icon(Icons.settings)),
-          Container(
-            width: 10,
-          ),
           Expanded(
             child: TextFormField(
               controller: _controller,
               textAlign: TextAlign.center,
               autofocus: true,
+              style: TextStyle(fontSize: 23),
               decoration: InputDecoration.collapsed(
-                  hintText: "Search", border: InputBorder.none),
+                  hintText: "Suche:", border: InputBorder.none),
             ),
           ),
           Container(
