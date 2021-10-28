@@ -93,7 +93,7 @@ class _HaeckchenState extends State<Haeckchen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Checkliste1"),
+        title: Text(widget.haeckchencheckliste.titel),
       ),
       body: SingleChildScrollView(
         child: Column(
