@@ -104,6 +104,7 @@ class _StartseiteState extends State<Startseite> {
     await showMenu(
       context: context,
       position: RelativeRect.fromLTRB(left, top, 100, 100),
+      color: Colors.grey,
       items: [
         PopupMenuItem(
           value: 1,
