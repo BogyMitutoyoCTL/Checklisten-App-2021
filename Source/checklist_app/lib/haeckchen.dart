@@ -55,9 +55,10 @@ class _HaeckchenState extends State<Haeckchen> {
               border: InputBorder.none),
         )));
 
-    if (widget.haeckchencheckliste.bild != null) {
+    var bild = widget.haeckchencheckliste.bild;
+    if (bild != null) {
       liste.add(Row(
-        children: [Image.file(widget.haeckchencheckliste.bild!)],
+        children: [Image.file(bild)],
       ));
     } else {
       liste.add(Row(
