@@ -21,7 +21,8 @@ class BogyChecklistApp extends StatelessWidget {
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      title: AppLocalizations.of(context)!.checklist,
+      onGenerateTitle: (BuildContext context) =>
+          AppLocalizations.of(context)!.checklist,
       theme: ThemeData(
           primarySwatch: Colors.grey,
           canvasColor: Color.fromARGB(254, 190, 195, 200)),
