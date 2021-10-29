@@ -170,6 +170,7 @@ class _StartseiteState extends State<Startseite> {
 
       if (3 == value) {
         widget.startseitenListen.remove(liste);
+        LokalesSpeichern().dateienSpeichern(widget.startseitenListen);
         refresh();
       }
     });
