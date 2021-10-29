@@ -11,5 +11,11 @@
   "view": "Anzeigen",
   "edit": "Bearbeiten",
   "delete": "Löschen",
-  "search": "suche"
+  "search": "suche",
+  "name_of_the_checklist": "Name der Checkliste",
+  "for_example_2pounds_of_bananas": "zum Beispiel 1kg Bananen",
+  "create_a_checklist": "Erstelle eine Checkliste",
+  "pick_image": "Bild auswählen",
+  "save": "Speichern",
+  "checklist": "Checkliste"
 }
