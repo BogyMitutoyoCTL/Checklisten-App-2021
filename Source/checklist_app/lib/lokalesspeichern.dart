@@ -8,10 +8,13 @@ class LokalesSpeichern {
 
   void dateienSpeichern(List<Checkliste> checklist) {
     final instance = Localstore.instance;
-    instance
-        .collection(this.path)
-        .doc(this.id)
-        .set({checklistkey: checklist[0].toMap()});
+    Map<String, dynamic> allMaps = {};
+    var counter = 0;
+    for (var list in checklist) {
+      allMaps[counter.toString()] = list.toMap();
+      counter++;
+    }
+    instance.collection(this.path).doc(this.id).set(allMaps);
   }
 
   Future<List<Checkliste>?> dateienAusgeben() async {
@@ -20,8 +23,15 @@ class LokalesSpeichern {
         await instance.collection(this.path).doc(this.id).get();
     if (savedData == null) {
       return [];
+    } else {
+      var counter = 0;
+      List<Checkliste> list = [];
+      while (savedData[counter.toString()] != null) {
+        list.add(toCheckliste(savedData[counter.toString()]));
+        counter++;
+      }
+      return list;
     }
-    return [toCheckliste(savedData)];
   }
 
   void dateienLoeschen() {
