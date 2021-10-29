@@ -34,7 +34,6 @@ class _HaeckchenState extends State<Haeckchen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _controller.dispose();
   }
@@ -59,21 +58,12 @@ class _HaeckchenState extends State<Haeckchen> {
     var bild = widget.haeckchencheckliste.bild;
     if (bild != null) {
       liste.add(Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.file(
             bild,
-            height: 150,
-            width: 150,
-          )
-        ],
-      ));
-    } else {
-      liste.add(Row(
-        children: [
-          Placeholder(
-            // Todo: Bild einfügen,
-            fallbackHeight: 250,
-            fallbackWidth: 392,
+            height: 300,
+            fit: BoxFit.cover,
           )
         ],
       ));
