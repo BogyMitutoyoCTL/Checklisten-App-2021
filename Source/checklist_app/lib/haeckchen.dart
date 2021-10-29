@@ -63,17 +63,7 @@ class _HaeckchenState extends State<Haeckchen> {
           Image.file(
             bild,
             height: 150,
-            width: 150,
-          )
-        ],
-      ));
-    } else {
-      liste.add(Row(
-        children: [
-          Placeholder(
-            // Todo: Bild einfügen,
-            fallbackHeight: 250,
-            fallbackWidth: 392,
+            fit: BoxFit.cover,
           )
         ],
       ));

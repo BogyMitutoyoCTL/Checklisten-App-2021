@@ -28,6 +28,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
+  transparent_image: ^2.0.0
 
 
 
