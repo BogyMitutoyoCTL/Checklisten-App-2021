@@ -32,7 +32,7 @@ class BogyChecklistApp extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               bodyText1: TextStyle(
-                fontSize: 20,
+                fontSize: 16.5,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.bold,
               )),

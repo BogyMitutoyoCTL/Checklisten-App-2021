@@ -67,19 +67,23 @@ class _StartseiteState extends State<Startseite> {
                   PopupMenuItem(
                     child: Text(
                       AppLocalizations.of(context)!.report_Bug,
+                      style: Theme.of(context).primaryTextTheme.bodyText1,
                     ),
                     value: 3,
                   ),
                   PopupMenuItem(
                     child: Text(AppLocalizations.of(context)!.feature_wish),
+                    textStyle: Theme.of(context).primaryTextTheme.bodyText1,
                     value: 1,
                   ),
                   PopupMenuItem(
                     child: Text(AppLocalizations.of(context)!.invite_friends),
+                    textStyle: Theme.of(context).primaryTextTheme.bodyText1,
                     value: 4,
                   ),
                 ]),
         title: Text(AppLocalizations.of(context)!.your_Checklists),
+        textTheme: Theme.of(context).primaryTextTheme,
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -141,14 +145,17 @@ class _StartseiteState extends State<Startseite> {
         PopupMenuItem(
           value: 1,
           child: Text(AppLocalizations.of(context)!.view),
+          textStyle: Theme.of(context).primaryTextTheme.bodyText1,
         ),
         PopupMenuItem(
           value: 2,
           child: Text(AppLocalizations.of(context)!.edit),
+          textStyle: Theme.of(context).primaryTextTheme.bodyText1,
         ),
         PopupMenuItem(
           value: 3,
           child: Text(AppLocalizations.of(context)!.delete),
+          textStyle: Theme.of(context).primaryTextTheme.bodyText1,
         ),
       ],
       elevation: 8.0,
