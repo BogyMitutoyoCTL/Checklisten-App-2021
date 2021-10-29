@@ -20,15 +20,14 @@ class Haeckchen extends StatefulWidget {
 class _HaeckchenState extends State<Haeckchen> {
   @override
   final TextEditingController _controller = TextEditingController();
-  String _text = "";
 
   @override
   void iniState() {
     super.initState();
-    _controller.text = _text;
+    _controller.text = widget.haeckchencheckliste.notizen;
     _controller.addListener(() {
       setState(() {
-        _text = _controller.text;
+        widget.haeckchencheckliste.notizen = _controller.text;
       });
     });
   }
@@ -43,16 +42,16 @@ class _HaeckchenState extends State<Haeckchen> {
   @override
   Widget build(BuildContext context) {
     List<Widget> liste = [];
-
+    _controller.text = widget.haeckchencheckliste.notizen;
     liste.add(Padding(
         padding: const EdgeInsets.all(30.0),
-        child: TextFormField(
+        child: TextField(
           autofocus: false,
           controller: _controller,
           textAlign: TextAlign.center,
+          onSubmitted: onSubmitted,
           decoration: InputDecoration.collapsed(
-              hintText: widget.haeckchencheckliste.notizen,
-              border: InputBorder.none),
+              hintText: ("Notizen"), border: InputBorder.none),
         )));
 
     var bild = widget.haeckchencheckliste.bild;
@@ -129,5 +128,10 @@ class _HaeckchenState extends State<Haeckchen> {
 
   void refresh() {
     setState(() {});
+  }
+
+  void onSubmitted(String value) {
+    widget.haeckchencheckliste.notizen = value;
+    refresh();
   }
 }
