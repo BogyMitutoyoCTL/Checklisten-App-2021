@@ -47,9 +47,9 @@ class _HaeckchenState extends State<Haeckchen> {
     liste.add(Padding(
         padding: const EdgeInsets.all(30.0),
         child: TextFormField(
+          autofocus: false,
           controller: _controller,
           textAlign: TextAlign.center,
-          autofocus: true,
           decoration: InputDecoration.collapsed(
               hintText: widget.haeckchencheckliste.notizen,
               border: InputBorder.none),
