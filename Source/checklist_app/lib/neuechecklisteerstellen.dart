@@ -74,9 +74,9 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
               controller: titelController,
               textAlign: TextAlign.center,
               decoration: InputDecoration.collapsed(
-                  hintText:
-                      (AppLocalizations.of(context)!.name_of_the_checklist),
-                  border: InputBorder.none))),
+                hintText: (AppLocalizations.of(context)!.name_of_the_checklist),
+                border: InputBorder.none,
+              ))),
       Row(children: [
         Expanded(
           child: TextFormField(

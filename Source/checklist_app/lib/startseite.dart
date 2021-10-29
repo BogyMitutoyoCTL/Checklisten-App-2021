@@ -49,7 +49,9 @@ class _StartseiteState extends State<Startseite> {
                 children: [Expanded(child: Text(liste.titel)), Icon(icon)],
               )),
               style: ElevatedButton.styleFrom(
-                  minimumSize: Size(double.infinity, 100)),
+                minimumSize: Size(double.infinity, 100),
+                textStyle: Theme.of(context).primaryTextTheme.bodyText1,
+              ),
               //color: Colors.grey,
               //textColor: Colors.black,
               onPressed: () => showChecklist(liste)),
@@ -69,12 +71,12 @@ class _StartseiteState extends State<Startseite> {
                       AppLocalizations.of(context)!.report_Bug,
                       style: Theme.of(context).primaryTextTheme.bodyText1,
                     ),
-                    value: 3,
+                    value: 6,
                   ),
                   PopupMenuItem(
                     child: Text(AppLocalizations.of(context)!.feature_wish),
                     textStyle: Theme.of(context).primaryTextTheme.bodyText1,
-                    value: 1,
+                    value: 5,
                   ),
                   PopupMenuItem(
                     child: Text(AppLocalizations.of(context)!.invite_friends),
@@ -183,7 +185,7 @@ class _StartseiteState extends State<Startseite> {
   }
 
   void popupmenueselected(int value) {
-    if (1 == value) {
+    if (5 == value) {
       //Feature Wunsch
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => WebView(
@@ -191,18 +193,15 @@ class _StartseiteState extends State<Startseite> {
                     "https://github.com/BogyMitutoyoCTL/Checklisten-App-2021/issues/",
               )));
     }
-    if (2 == value) {
-      //Sprache ändern}
-      if (3 == value) {
-        //Fehler melden
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => WebView(
-                  initialUrl:
-                      "https://github.com/BogyMitutoyoCTL/Checklisten-App-2021/issues/",
-                )));
-      }
-      if (4 == value) {} // Freunde einladen
 
+    if (6 == value) {
+      //Fehler melden
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => WebView(
+                initialUrl:
+                    "https://github.com/BogyMitutoyoCTL/Checklisten-App-2021/issues/",
+              )));
     }
+    if (4 == value) {} // Freunde einladen
   }
 }

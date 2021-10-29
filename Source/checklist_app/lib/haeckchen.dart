@@ -51,7 +51,9 @@ class _HaeckchenState extends State<Haeckchen> {
           textAlign: TextAlign.center,
           onSubmitted: onSubmitted,
           decoration: InputDecoration.collapsed(
-              hintText: ("Notizen"), border: InputBorder.none),
+              hintText: AppLocalizations.of(context)!.note,
+              border: InputBorder.none),
+          style: Theme.of(context).primaryTextTheme.bodyText1,
         )));
 
     var bild = widget.haeckchencheckliste.bild;
