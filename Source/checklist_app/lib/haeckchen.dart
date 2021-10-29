@@ -81,7 +81,12 @@ class _HaeckchenState extends State<Haeckchen> {
               });
             },
           ),
-          Expanded(child: Text(eintrag.text)),
+          Expanded(
+              child: GestureDetector(
+                  onTap: () => setState(() {
+                        eintrag.erledigt = !eintrag.erledigt;
+                      }),
+                  child: Text(eintrag.text))),
         ],
       );
       liste.add(r);
