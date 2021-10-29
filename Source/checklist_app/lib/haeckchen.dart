@@ -1,6 +1,7 @@
 /// Flutter code sample for Checkbox
 import 'package:checklist_app/klassecheckliste.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'neuechecklisteerstellen.dart';
 
@@ -85,7 +86,9 @@ class _HaeckchenState extends State<Haeckchen> {
     liste.add(Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        ElevatedButton(onPressed: bearbeiten, child: Text("Bearbeiten"))
+        ElevatedButton(
+            onPressed: bearbeiten,
+            child: Text(AppLocalizations.of(context)!.edit))
       ],
     ));
 
