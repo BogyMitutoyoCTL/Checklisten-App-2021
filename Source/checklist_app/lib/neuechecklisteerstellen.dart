@@ -98,6 +98,19 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
       ]),
     ];
     children2.addAll(listezumAnzeigen);
+    var bild = widget.c.bild;
+    if (bild != null) {
+      children2.add(Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.file(
+            bild,
+            height: 200,
+            fit: BoxFit.cover,
+          )
+        ],
+      ));
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -162,6 +175,7 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       widget.c.bild = File(image.path);
+      setState(() {});
     }
   }
 }
