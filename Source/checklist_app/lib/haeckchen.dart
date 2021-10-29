@@ -55,15 +55,21 @@ class _HaeckchenState extends State<Haeckchen> {
               border: InputBorder.none),
         )));
 
-    liste.add(Row(
-      children: [
-        Placeholder(
-          // Todo: Bild einfügen,
-          fallbackHeight: 250,
-          fallbackWidth: 392,
-        )
-      ],
-    ));
+    if (widget.haeckchencheckliste.bild != null) {
+      liste.add(Row(
+        children: [Image.file(widget.haeckchencheckliste.bild!)],
+      ));
+    } else {
+      liste.add(Row(
+        children: [
+          Placeholder(
+            // Todo: Bild einfügen,
+            fallbackHeight: 250,
+            fallbackWidth: 392,
+          )
+        ],
+      ));
+    }
 
     for (var eintrag in widget.haeckchencheckliste.eintraege) {
       Row r = Row(

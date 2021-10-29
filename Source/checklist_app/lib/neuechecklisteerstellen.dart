@@ -156,7 +156,7 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
   Future<void> callCamera() async {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
-      widget.c.bild = Image.file(File(image.path));
+      widget.c.bild = File(image.path);
     }
   }
 }

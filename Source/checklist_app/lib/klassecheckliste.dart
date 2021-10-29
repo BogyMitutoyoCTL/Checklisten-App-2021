@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'dart:io';
 
 const mapText = 'Text';
 const mapErledigt = 'Erledigt';
@@ -9,7 +9,7 @@ const mapNotizen = 'Notizen';
 const mapEintraege = 'Eintraege';
 
 class Checkliste {
-  Image? bild;
+  File? bild;
   String titel = "";
   String notizen = "";
   late List<Eintrag> eintraege = [];
