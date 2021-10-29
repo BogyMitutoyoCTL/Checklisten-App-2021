@@ -55,8 +55,7 @@ class Eintrag {
   }
 }
 
-Checkliste toCheckliste(mapBig) {
-  var map = mapBig['checklist'];
+Checkliste toCheckliste(map) {
   List<Eintrag> eintraege = [];
   for (var mapEntry in map[mapEintraege]) {
     eintraege.add(toEintrag(mapEntry));
