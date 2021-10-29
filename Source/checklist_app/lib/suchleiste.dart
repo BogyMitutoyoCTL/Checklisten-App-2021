@@ -43,9 +43,9 @@ class _SuchleisteState extends State<Suchleiste> {
         children: [
           Expanded(
             child: TextFormField(
+              autofocus: false,
               controller: _controller,
               textAlign: TextAlign.center,
-              autofocus: true,
               style: TextStyle(fontSize: 23),
               decoration: InputDecoration.collapsed(
                   hintText: (AppLocalizations.of(context)!.search),
