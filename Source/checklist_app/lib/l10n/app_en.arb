@@ -1,6 +1,14 @@
 {
-"buttonDelete": "Delete checklist",
-"@buttonDelete": {
-"description": "The button on the start page"
-}
+  "buttonDelete": "Delete checklist",
+  "@buttonDelete": {
+    "description": "The button on the start page"
+  },
+  "report_Bug": "Fehler melden",
+  "feature_wish": "Feature Wunsch",
+  "invite_friends": "Freunde einladen",
+  "your_Checklists":"Deine Checklisten",
+  "create_new_checklist":"Neue Checkliste erstellen",
+  "view": "Anzeigen",
+  "edit": "Bearbeiten",
+  "delete": "Löschen"
 }

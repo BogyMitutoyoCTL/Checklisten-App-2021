@@ -5,6 +5,7 @@ import 'package:checklist_app/neuechecklisteerstellen.dart';
 import 'package:checklist_app/suchleiste.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Startseite extends StatefulWidget {
@@ -63,23 +64,21 @@ class _StartseiteState extends State<Startseite> {
             color: Colors.grey,
             itemBuilder: (context) => [
                   PopupMenuItem(
-                    child: Text("Sprache ändern"),
-                    value: 2,
-                  ),
-                  PopupMenuItem(
-                    child: Text("Fehler melden"),
+                    child: Text(
+                      AppLocalizations.of(context)!.report_Bug,
+                    ),
                     value: 3,
                   ),
                   PopupMenuItem(
-                    child: Text("Feature Wunsch"),
+                    child: Text(AppLocalizations.of(context)!.feature_wish),
                     value: 1,
                   ),
                   PopupMenuItem(
-                    child: Text("Freunde einladen "),
+                    child: Text(AppLocalizations.of(context)!.invite_friends),
                     value: 4,
                   ),
                 ]),
-        title: Text("Deine Checklisten"),
+        title: Text(AppLocalizations.of(context)!.your_Checklists),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -94,7 +93,7 @@ class _StartseiteState extends State<Startseite> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createChecklist,
-        tooltip: 'Neue Checkliste erstellen',
+        tooltip: (AppLocalizations.of(context)!.create_new_checklist),
         backgroundColor: Colors.grey,
         child: Icon(Icons.add),
       ),
@@ -141,15 +140,15 @@ class _StartseiteState extends State<Startseite> {
       items: [
         PopupMenuItem(
           value: 1,
-          child: Text("View"),
+          child: Text(AppLocalizations.of(context)!.view),
         ),
         PopupMenuItem(
           value: 2,
-          child: Text("Edit"),
+          child: Text(AppLocalizations.of(context)!.edit),
         ),
         PopupMenuItem(
           value: 3,
-          child: Text("Delete"),
+          child: Text(AppLocalizations.of(context)!.delete),
         ),
       ],
       elevation: 8.0,
@@ -162,6 +161,13 @@ class _StartseiteState extends State<Startseite> {
             .push(MaterialPageRoute(builder: (context) => Haeckchen(liste)))
             .then((value) => refresh());
       }
+      if (2 == value) {
+        Navigator.of(context)
+            .push(MaterialPageRoute(
+                builder: (context) => ChecklisteBearbeiten(liste)))
+            .then((value) => refresh());
+      }
+
       if (3 == value) {
         widget.startseitenListen.remove(liste);
         refresh();
