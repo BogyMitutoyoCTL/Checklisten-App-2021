@@ -70,9 +70,9 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
       Padding(
           padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
           child: TextFormField(
+              autofocus: false,
               controller: titelController,
               textAlign: TextAlign.center,
-              autofocus: true,
               decoration: InputDecoration.collapsed(
                   hintText:
                       (AppLocalizations.of(context)!.name_of_the_checklist),
@@ -80,9 +80,9 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
       Row(children: [
         Expanded(
           child: TextFormField(
+              autofocus: false,
               controller: sachController,
               textAlign: TextAlign.start,
-              autofocus: true,
               decoration: InputDecoration.collapsed(
                   hintText: (AppLocalizations.of(context)!
                       .for_example_2pounds_of_bananas),
