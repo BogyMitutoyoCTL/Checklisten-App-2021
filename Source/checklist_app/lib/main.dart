@@ -25,6 +25,17 @@ class BogyChecklistApp extends StatelessWidget {
           AppLocalizations.of(context)!.checklist,
       theme: ThemeData(
           primarySwatch: Colors.grey,
+          primaryTextTheme: TextTheme(
+              headline6: TextStyle(
+                fontSize: 25.0,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold,
+              ),
+              bodyText1: TextStyle(
+                fontSize: 20,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold,
+              )),
           canvasColor: Color.fromARGB(254, 190, 195, 200)),
       home: Startseite(appListen),
     );
