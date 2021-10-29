@@ -22,6 +22,7 @@ class _StartseiteState extends State<Startseite> {
   String gesuchtesWort = "";
   @override
   Widget build(BuildContext context) {
+    LokalesSpeichern().dateienSpeichern(widget.startseitenListen);
     List<Container> containerliste = [];
     for (var liste in widget.startseitenListen) {
       if (!liste.titel.toLowerCase().contains(gesuchtesWort.toLowerCase())) {
@@ -45,7 +46,7 @@ class _StartseiteState extends State<Startseite> {
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Text(liste.titel), Icon(icon)],
+                children: [Expanded(child: Text(liste.titel)), Icon(icon)],
               )),
               style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 100)),
@@ -126,7 +127,6 @@ class _StartseiteState extends State<Startseite> {
 
   addChecklist(Checkliste? checklist) {
     widget.startseitenListen.add(checklist!);
-    LokalesSpeichern().dateienSpeichern(widget.startseitenListen);
     refresh();
   }
 
@@ -170,7 +170,6 @@ class _StartseiteState extends State<Startseite> {
 
       if (3 == value) {
         widget.startseitenListen.remove(liste);
-        LokalesSpeichern().dateienSpeichern(widget.startseitenListen);
         refresh();
       }
     });

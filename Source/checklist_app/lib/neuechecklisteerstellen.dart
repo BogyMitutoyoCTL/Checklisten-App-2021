@@ -109,9 +109,11 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(children: children2),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(children: children2),
+        ),
       ),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
