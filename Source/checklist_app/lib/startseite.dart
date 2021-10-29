@@ -46,7 +46,7 @@ class _StartseiteState extends State<Startseite> {
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Text(liste.titel), Icon(icon)],
+                children: [Expanded(child: Text(liste.titel)), Icon(icon)],
               )),
               style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 100)),
