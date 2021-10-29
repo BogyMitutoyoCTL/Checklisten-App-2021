@@ -110,13 +110,13 @@ In der BOGY-Woche müssen wir noch lernen
 
 ## Montag 25.10.21
 
-Nachdem wir die Grundlagen von Dart verstanden haben, konnten wir uns heute mit dem Thema [Flutter](Flutter.pptx) beschäftigen. Flutter ist ein Zusatz zu Dart, der es uns erlaubt, Apps mit visuellen Gestaltungselementen zu erstellen. Die visuellen Elemente heißen Widgets.
+Nachdem wir die Grundlagen von Dart verstanden haben, konnten wir uns heute mit dem Thema [Flutter (PPTX⇓)](Flutter.pptx) beschäftigen. Flutter ist ein Zusatz zu Dart, der es uns erlaubt, Apps mit visuellen Gestaltungselementen zu erstellen. Die visuellen Elemente heißen Widgets.
 
 ## Dienstag 26.10.21
 
 Am Morgen haben wir überlegt, wie die App aussehen könnte. Es entstanden sogenannte Wireframes und eine Navigationsübersicht.
 
-Im Anschluss haben wir besprochen, was [Versionskontrolle](Versionskontrolle.pptx) ist und wie sie konkret bei [Git](GitWindows.pptx) einsetzt.
+Im Anschluss haben wir besprochen, was [Versionskontrolle (PPTX⇓)](Versionskontrolle.pptx) ist und wie sie konkret bei [Git (PPTX⇓)](GitWindows.pptx) einsetzt.
 
 Den Rest des Dienstages haben wir damit verbracht, die Wireframes in echte Widgets zu verwandeln. Diese liefen allerdings noch mit Demo-Daten, also noch nicht mit echten Daten aus echten Checklisten.
 
@@ -133,6 +133,19 @@ Herr Haufe, Lehrer vom Gymnasium am Rosenberg hat uns besucht und sich den Forts
 
 ## Donnerstag 28.10.21
 
-Wir haben uns kurz über [Scrum](Scrum.pptx) informiert und die verbleibenden Aufgaben aufgeschrieben und im Taskboard verwaltet.
+Wir haben uns kurz über [Scrum (PPTX⇓)](Scrum.pptx) informiert und die verbleibenden Aufgaben aufgeschrieben und im Taskboard verwaltet.
 
-Im Laufe des Tages haben wir auch erfahren, wie [Globalisierung](Globalisierung.pptx) in einer App funktioniert.
+Im Laufe des Tages haben wir auch erfahren, wie [Globalisierung (PPTX⇓)](Globalisierung.pptx) in einer App funktioniert. Später haben wir noch festgestellt, dass man die Default-Sprache in `l10n.yaml` mit `preferred-supported-locales: ["en"]` eingestellt werden kann, so dass Englisch als Sprache ausgewählt wird, falls eine eher exotische Sprache eingestellt ist.
+
+## Freitag 29.10.21
+
+Wir haben ein paar [Issues 🔗](https://github.com/BogyMitutoyoCTL/Checklisten-App-2021/issues) bei Github eingetragen und behoben und ansonsten weiter die Tasks vom Taskboard bearbeitet.
+
+Um eine APK Datei zu erstellen, die dann verteilt und auf dem Handy installiert werden kann, darf im Terminal der Befehl `flutter build apk --release` verwendet werden. In den Google Playstore haben wir die App nicht veröffentlicht, da das noch [viele Schritte mehr 🔗](https://flutter.dev/docs/deployment/android) bedeutet.
+
+Am Nachmittag gab es noch eine Feedbackrunde. Wer sich für Informatik interessiert  findet auf folgenden Seiten noch Ideen für Programmieraufgaben:
+
+* [Project Euler 🔗](https://projecteuler.net) mit eher mathematischen Rätseln
+* [Codewars 🔗](https://www.codewars.com) 
+* [Hackerrank 🔗](https://www.hackerrank.com/)
+
