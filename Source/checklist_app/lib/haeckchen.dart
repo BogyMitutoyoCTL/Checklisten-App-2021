@@ -89,7 +89,7 @@ class _HaeckchenState extends State<Haeckchen> {
               });
             },
           ),
-          Text(eintrag.text),
+          Expanded(child: Text(eintrag.text)),
         ],
       );
       liste.add(r);
