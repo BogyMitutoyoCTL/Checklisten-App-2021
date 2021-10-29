@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'klassecheckliste.dart';
@@ -73,7 +74,9 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
               textAlign: TextAlign.center,
               autofocus: true,
               decoration: InputDecoration.collapsed(
-                  hintText: "Name der Checkliste", border: InputBorder.none))),
+                  hintText:
+                      (AppLocalizations.of(context)!.name_of_the_checklist),
+                  border: InputBorder.none))),
       Row(children: [
         Expanded(
           child: TextFormField(
@@ -81,7 +84,8 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
               textAlign: TextAlign.start,
               autofocus: true,
               decoration: InputDecoration.collapsed(
-                  hintText: "zum Beispiel 1kg Bananen",
+                  hintText: (AppLocalizations.of(context)!
+                      .for_example_2pounds_of_bananas),
                   border: InputBorder.none)),
         ),
         ElevatedButton(
@@ -101,7 +105,7 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Erstelle eine Checkliste"),
+            Text(AppLocalizations.of(context)!.create_a_checklist),
           ],
         ),
       ),
@@ -116,13 +120,13 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
             padding: const EdgeInsets.only(bottom: 8.0),
             child: FloatingActionButton(
               onPressed: photo,
-              tooltip: "Bild auswählen",
+              tooltip: (AppLocalizations.of(context)!.pick_image),
               child: Icon(Icons.photo),
             ),
           ),
           FloatingActionButton(
             onPressed: speichern,
-            tooltip: "Speichern",
+            tooltip: (AppLocalizations.of(context)!.save),
             child: Icon(Icons.save_alt),
           ),
         ],
