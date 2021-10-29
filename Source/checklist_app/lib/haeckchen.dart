@@ -1,5 +1,6 @@
 /// Flutter code sample for Checkbox
 import 'package:checklist_app/klassecheckliste.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -58,14 +59,13 @@ class _HaeckchenState extends State<Haeckchen> {
 
     var bild = widget.haeckchencheckliste.bild;
     if (bild != null) {
-      liste.add(Row(
-        children: [
-          Image.file(
-            bild,
-            height: 150,
-            width: 150,
-          )
-        ],
+      liste.add(Padding(
+        padding: const EdgeInsets.fromLTRB(20.0, 0, 20.0, 0),
+        child: Image.file(
+          bild,
+          fit: BoxFit.cover,
+          //height: 250,
+        ),
       ));
     } else {
       liste.add(Row(
