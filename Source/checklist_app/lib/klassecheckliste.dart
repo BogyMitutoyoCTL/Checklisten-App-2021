@@ -7,6 +7,7 @@ const mapAnzahl = 'Anzahl';
 const mapTitel = 'Titel';
 const mapNotizen = 'Notizen';
 const mapEintraege = 'Eintraege';
+const mapBild = 'Bild';
 
 class Checkliste {
   File? bild;
@@ -27,6 +28,9 @@ class Checkliste {
     var map = {};
     map[mapTitel] = this.titel;
     map[mapNotizen] = this.notizen;
+    if (this.bild != null) {
+      map[mapBild] = this.bild!.path;
+    }
     List<Map> entries = [];
     for (var entry in this.eintraege) {
       entries.add(entry.toMap());
@@ -60,8 +64,19 @@ Checkliste toCheckliste(map) {
   for (var mapEntry in map[mapEintraege]) {
     eintraege.add(toEintrag(mapEntry));
   }
-  return Checkliste(
-      titel: map[mapTitel], notizen: map[mapNotizen], eintraege: eintraege);
+  if (map[mapBild] != null) {
+    return Checkliste(
+        titel: map[mapTitel],
+        notizen: map[mapNotizen],
+        eintraege: eintraege,
+        bild: File(map[mapBild]));
+  } else {
+    return Checkliste(
+      titel: map[mapTitel],
+      notizen: map[mapNotizen],
+      eintraege: eintraege,
+    );
+  }
 }
 
 Eintrag toEintrag(Map map) {
