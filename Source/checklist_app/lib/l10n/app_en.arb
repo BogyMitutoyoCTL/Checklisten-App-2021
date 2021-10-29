@@ -10,5 +10,6 @@
   "create_new_checklist":"Neue Checkliste erstellen",
   "view": "Anzeigen",
   "edit": "Bearbeiten",
-  "delete": "Löschen"
+  "delete": "Löschen",
+  "search": "suche"
 }

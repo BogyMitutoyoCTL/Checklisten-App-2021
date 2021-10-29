@@ -1,6 +1,7 @@
 import 'package:checklist_app/einstellungen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Suchleiste extends StatefulWidget {
   void Function(String wort) gesuchtesWortAktualisieren;
@@ -47,7 +48,8 @@ class _SuchleisteState extends State<Suchleiste> {
               autofocus: true,
               style: TextStyle(fontSize: 23),
               decoration: InputDecoration.collapsed(
-                  hintText: "Suche:", border: InputBorder.none),
+                  hintText: (AppLocalizations.of(context)!.search),
+                  border: InputBorder.none),
             ),
           ),
           Container(
