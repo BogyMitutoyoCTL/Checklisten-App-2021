@@ -127,7 +127,6 @@ class _StartseiteState extends State<Startseite> {
 
   addChecklist(Checkliste? checklist) {
     widget.startseitenListen.add(checklist!);
-    LokalesSpeichern().dateienSpeichern(widget.startseitenListen);
     refresh();
   }
 
@@ -171,7 +170,6 @@ class _StartseiteState extends State<Startseite> {
 
       if (3 == value) {
         widget.startseitenListen.remove(liste);
-        LokalesSpeichern().dateienSpeichern(widget.startseitenListen);
         refresh();
       }
     });
