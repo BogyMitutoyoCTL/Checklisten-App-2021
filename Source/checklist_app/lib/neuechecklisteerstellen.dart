@@ -59,7 +59,7 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
           Expanded(child: Text(eintrag.text)),
           ElevatedButton(
               onPressed: () => loeschen(eintrag),
-              child: Icon(Icons.backspace_outlined))
+              child: Icon(Icons.backspace_outlined)),
         ],
       );
       listezumAnzeigen.add(grossserText);
@@ -81,7 +81,8 @@ class _ChecklisteBearbeitenState extends State<ChecklisteBearbeiten> {
               textAlign: TextAlign.start,
               autofocus: true,
               decoration: InputDecoration.collapsed(
-                  hintText: "zum Beispiel Banane", border: InputBorder.none)),
+                  hintText: "zum Beispiel 1kg Bananen",
+                  border: InputBorder.none)),
         ),
         ElevatedButton(
           onPressed: hinzufuegen,
