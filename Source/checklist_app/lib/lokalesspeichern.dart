@@ -35,6 +35,7 @@ class LokalesSpeichern {
   }
 
   void dateienLoeschen() {
+    // Wird eigentlich nicht gebraucht, da beim Speichern alles überschrieben wird
     final instance = Localstore.instance;
     instance.collection(this.path).doc(this.id).delete();
   }
