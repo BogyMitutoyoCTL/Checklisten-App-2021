@@ -22,6 +22,7 @@ class _StartseiteState extends State<Startseite> {
   String gesuchtesWort = "";
   @override
   Widget build(BuildContext context) {
+    LokalesSpeichern().dateienSpeichern(widget.startseitenListen);
     List<Container> containerliste = [];
     for (var liste in widget.startseitenListen) {
       if (!liste.titel.toLowerCase().contains(gesuchtesWort.toLowerCase())) {
