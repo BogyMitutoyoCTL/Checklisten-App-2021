@@ -56,10 +56,10 @@ class _HaeckchenState extends State<Haeckchen> {
         )));
 
     var bild = widget.haeckchencheckliste.bild;
-    if (bild != null) {
+    if (1 < 0) {
       liste.add(Row(
-        children: [Image.file(bild)],
-      ));
+          //children: [Image.file(bild)],
+          ));
     } else {
       liste.add(Row(
         children: [
